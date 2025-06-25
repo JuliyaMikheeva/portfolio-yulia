@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Юлия Михеева — Копирайтер</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background-color: #f9f5f1;
+      color: #4a4a4a;
+    }
+    header {
+      background: #ffffff;
+      padding: 20px 40px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+      color: #3e8fc6;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 10px;
+    }
+    nav a {
+      text-decoration: none;
+      color: #3e8fc6;
+      font-weight: bold;
+    }
+    section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    h2 {
+      color: #3e8fc6;
+      border-bottom: 2px solid #a2cfff;
+      padding-bottom: 10px;
+    }
+    .portfolio-item {
+      background: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background: #3e8fc6;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #ecf0f1;
+      color: #777;
+    }
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+
+    /* Защита от копирования */
+    body {
+      -webkit-user-select: none; /* Safari */
+      -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* IE10+/Edge */
+      user-select: none; /* Standard */
+    }
+  </style>
+  <script>
+    // Блокировка контекстного меню и горячих клавиш
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.onkeydown = function(e) {
+      if (event.keyCode === 123) return false; // F12
+      if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 85 || e.keyCode === 117)) { // Ctrl+C, Ctrl+V, Ctrl+U, F6
+        return false;
+      }
+    };
+
+    function copyLink() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        alert("Ссылка скопирована: " + window.location.href);
+      });
+    }
+  </script>
+</head>
+<body>
+
+  <header>
+    <h1>Юлия Михеева</h1>
+    <p>Копирайтер с сильными сторонами — грамотность, внимание к деталям, умение вникать в бизнес клиента</p>
+    <nav>
+      <a href="#about">Обо мне</a>
+      <a href="#services">Услуги</a>
+      <a href="#portfolio">Портфолио</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>Обо мне</h2>
+    <p>Меня зовут Юлия, я копирайтер с сильными сторонами — грамотностью, внимательностью к деталям и умением быстро вникать в особенности бизнеса клиента. Постоянно занимаюсь самообразованием, прошла несколько онлайн-курсов. Ответственно подхожу к срокам, готова развиваться вместе с вашими проектами и приложу все усилия, чтобы достичь нужного вам результата!</p>
+  </section>
+
+  <section id="services">
+    <h2>Услуги</h2>
+    <ul>
+      <li>Написание статей для площадок (vc.ru, dzen.ru, журналы)</li>
+      <li>Перевод научных статей с указанием источников</li>
+      <li>Написание сценариев подкастов с использованием ИИ</li>
+      <li>SEO-оптимизация текстов</li>
+      <li>Редактура и коррекция контента</li>
+    </ul>
+  </section>
+
+  <section id="portfolio">
+    <h2>Портфолио</h2>
+
+    <div class="portfolio-item">
+      <h3>Чистота без компромиссов: почему Mr.Clean24 — ваш надёжный партнёр в уборке</h3>
+      <p><strong>Задача:</strong> Написать статью о клининговой компании MrClean24.</p>
+      <p><strong>Описание:</strong> Полностью оригинальный текст, уникальность — 96.39%. Тематика: послестроительная, поддерживающая и генеральная уборка.</p>
+    </div>
+
+    <div class="portfolio-item">
+      <h3>Современные методы лазерной эпиляции: мифы и реальность</h3>
+      <p><strong>Задача:</strong> Написание статей по теме бьюти и медицинских услуг.</p>
+      <p><strong>Описание:</strong> Анализ площадок, перевод зарубежных статей, написание двух вариантов текста для публикаций.</p>
+    </div>
+
+  </section>
+
+  <section id="contacts">
+    <h2>Контакты</h2>
+    <p><strong>Телефон:</strong> +7 (910) 221-28-18 (WhatsApp)<br/>
+       <strong>Email:</strong> miheevascorpion@yandex.ru<br/>
+       <strong>VK:</strong> <a href="https://vk.com/juljetta79"  target="_blank">Профиль ВКонтакте</a>
+    </p>
+    <button onclick="copyLink()">Скопировать ссылку на портфолио</button>
+  </section>
+
+  <footer>
+    &copy; 2025 Юлия Михеева — Копирайтер
+  </footer>
+
+</body>
+</html>
