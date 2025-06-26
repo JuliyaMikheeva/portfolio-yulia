@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Юлия Михеева — Копирайтер</title>
+  <title>Портфолио копирайтера — Михеева Юлия</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
       background-color: #f9f5f1;
-      color: #4a4a4a;
+      color: #333;
     }
     header {
       background: #ffffff;
       padding: 20px 40px;
       text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
     header h1 {
       margin: 0;
       font-size: 28px;
-      color: #3e8fc6;
+      color: #2c3e50;
     }
     nav {
       display: flex;
@@ -31,7 +31,7 @@
     }
     nav a {
       text-decoration: none;
-      color: #3e8fc6;
+      color: #3498db;
       font-weight: bold;
     }
     section {
@@ -40,8 +40,8 @@
       padding: 0 20px;
     }
     h2 {
-      color: #3e8fc6;
-      border-bottom: 2px solid #a2cfff;
+      color: #2c3e50;
+      border-bottom: 2px solid #3498db;
       padding-bottom: 10px;
     }
     .portfolio-item {
@@ -65,7 +65,7 @@
       border-radius: 4px;
     }
     button {
-      background: #3e8fc6;
+      background: #3498db;
       color: white;
       border: none;
       padding: 10px 20px;
@@ -84,31 +84,7 @@
         gap: 10px;
       }
     }
-
-    /* Защита от копирования */
-    body {
-      -webkit-user-select: none; /* Safari */
-      -moz-user-select: none; /* Firefox */
-      -ms-user-select: none; /* IE10+/Edge */
-      user-select: none; /* Standard */
-    }
   </style>
-  <script>
-    // Блокировка контекстного меню и горячих клавиш
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    document.onkeydown = function(e) {
-      if (event.keyCode === 123) return false; // F12
-      if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 85 || e.keyCode === 117)) { // Ctrl+C, Ctrl+V, Ctrl+U, F6
-        return false;
-      }
-    };
-
-    function copyLink() {
-      navigator.clipboard.writeText(window.location.href).then(() => {
-        alert("Ссылка скопирована: " + window.location.href);
-      });
-    }
-  </script>
 </head>
 <body>
 
@@ -146,12 +122,14 @@
       <h3>Чистота без компромиссов: почему Mr.Clean24 — ваш надёжный партнёр в уборке</h3>
       <p><strong>Задача:</strong> Написать статью о клининговой компании MrClean24.</p>
       <p><strong>Описание:</strong> Полностью оригинальный текст, уникальность — 96.39%. Тематика: послестроительная, поддерживающая и генеральная уборка.</p>
+      <p><a href="https://mrclean24.ru " target="_blank">Ссылка на статью</a></p>
     </div>
 
     <div class="portfolio-item">
       <h3>Современные методы лазерной эпиляции: мифы и реальность</h3>
       <p><strong>Задача:</strong> Написание статей по теме бьюти и медицинских услуг.</p>
       <p><strong>Описание:</strong> Анализ площадок, перевод зарубежных статей, написание двух вариантов текста для публикаций.</p>
+      <p><a href="https://vc.ru " target="_blank">Ссылка на статью</a></p>
     </div>
 
   </section>
@@ -160,9 +138,8 @@
     <h2>Контакты</h2>
     <p><strong>Телефон:</strong> +7 (910) 221-28-18 (WhatsApp)<br/>
        <strong>Email:</strong> miheevascorpion@yandex.ru<br/>
-       <strong>VK:</strong> <a href="https://vk.com/juljetta79"  target="_blank">Профиль ВКонтакте</a>
+       <strong>VK:</strong> <a href="https://vk.com/juljetta79 " target="_blank">Профиль ВКонтакте</a>
     </p>
-    <button onclick="copyLink()">Скопировать ссылку на портфолио</button>
   </section>
 
   <footer>
