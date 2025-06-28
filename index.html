@@ -3,47 +3,92 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Портфолио копирайтера — Михеева Юлия</title>
+  <title>Юлия Михеева — Копирайтер</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Sacramento&family=Segoe+UI&display=swap" rel="stylesheet">
+
+  <!-- Яндекс.Метрика -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", " https://mc.yandex.ru/metrika/tag.js ", "ym");
+
+    ym(99999999, "init", {
+      clickmap:true,
+      trackLinks:true,
+      accurateTrackBounce:true
+    });
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/99999999 " style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
       background-color: #f9f5f1;
-      color: #333;
+      color: #4a4a4a;
     }
+
     header {
-      background: #ffffff;
-      padding: 20px 40px;
+      background: white;
+      padding: 40px 20px;
       text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
+
+    .avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
     header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 36px;
+      color: #3e8fc6;
       margin: 0;
-      font-size: 28px;
-      color: #2c3e50;
     }
+
+    header p {
+      font-family: 'Sacramento', cursive;
+      font-size: 20px;
+      color: #777;
+      margin-top: 10px;
+    }
+
     nav {
       display: flex;
       justify-content: center;
       gap: 30px;
-      margin-top: 10px;
+      margin-top: 20px;
     }
+
     nav a {
       text-decoration: none;
-      color: #3498db;
+      font-family: 'Great Vibes', cursive;
+      font-size: 22px;
+      color: #3e8fc6;
       font-weight: bold;
     }
+
     section {
       max-width: 900px;
       margin: 40px auto;
       padding: 0 20px;
     }
+
     h2 {
-      color: #2c3e50;
-      border-bottom: 2px solid #3498db;
+      font-family: 'Great Vibes', cursive;
+      font-size: 28px;
+      color: #3e8fc6;
+      border-bottom: 2px solid #a2cfff;
       padding-bottom: 10px;
     }
+
     .portfolio-item {
       background: white;
       padding: 20px;
@@ -51,12 +96,14 @@
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
+
     form {
       background: white;
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
+
     input, textarea {
       width: 100%;
       padding: 10px;
@@ -64,31 +111,65 @@
       border: 1px solid #ccc;
       border-radius: 4px;
     }
+
     button {
-      background: #3498db;
+      background: #3e8fc6;
       color: white;
       border: none;
       padding: 10px 20px;
       cursor: pointer;
       border-radius: 4px;
     }
+
     footer {
       text-align: center;
       padding: 20px;
       background: #ecf0f1;
       color: #777;
     }
+
     @media (max-width: 600px) {
       nav {
         flex-direction: column;
         gap: 10px;
       }
     }
+
+    /* Защита от копирования */
+    body {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    ::selection {
+      background: transparent;
+    }
   </style>
+  <script>
+    function copyLink() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        alert("Ссылка скопирована: " + window.location.href);
+      }).catch(err => {
+        alert("Не удалось скопировать ссылку");
+      });
+    }
+
+    // Блокировка контекстного меню и горячих клавиш
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.onkeydown = function(e) {
+      if (event.keyCode === 123) return false; // F12
+      if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 85)) { // Ctrl+C, Ctrl+V, Ctrl+U
+        return false;
+      }
+    };
+  </script>
 </head>
 <body>
 
   <header>
+    <img src="https://i.imgur.com/photo1.jpg " alt="Фото Юлии" class="avatar" />
     <h1>Юлия Михеева</h1>
     <p>Копирайтер с сильными сторонами — грамотность, внимание к деталям, умение вникать в бизнес клиента</p>
     <nav>
@@ -120,16 +201,14 @@
 
     <div class="portfolio-item">
       <h3>Чистота без компромиссов: почему Mr.Clean24 — ваш надёжный партнёр в уборке</h3>
-      <p><strong>Задача:</strong> Написать статью о клининговой компании MrClean24.</p>
+      <p><strong>Задача:</strong> Написать статью для журнала "Дом и интерьер"</p>
       <p><strong>Описание:</strong> Полностью оригинальный текст, уникальность — 96.39%. Тематика: послестроительная, поддерживающая и генеральная уборка.</p>
-      <p><a href="https://mrclean24.ru " target="_blank">Ссылка на статью</a></p>
     </div>
 
     <div class="portfolio-item">
       <h3>Современные методы лазерной эпиляции: мифы и реальность</h3>
-      <p><strong>Задача:</strong> Написание статей по теме бьюти и медицинских услуг.</p>
+      <p><strong>Задача:</strong> Публикации для vc.ru, dzen.ru, journal.tinkoff.ru</p>
       <p><strong>Описание:</strong> Анализ площадок, перевод зарубежных статей, написание двух вариантов текста для публикаций.</p>
-      <p><a href="https://vc.ru " target="_blank">Ссылка на статью</a></p>
     </div>
 
   </section>
@@ -140,6 +219,7 @@
        <strong>Email:</strong> miheevascorpion@yandex.ru<br/>
        <strong>VK:</strong> <a href="https://vk.com/juljetta79 " target="_blank">Профиль ВКонтакте</a>
     </p>
+    <button onclick="copyLink()">Скопировать ссылку на портфолио</button>
   </section>
 
   <footer>
