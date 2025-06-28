@@ -4,38 +4,34 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Юлия Михеева — Копирайтер</title>
-
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Sacramento&family=Segoe+UI&display=swap" rel="stylesheet">
-
-  <!-- Яндекс.Метрика -->
-  <script type="text/javascript">
-    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-    m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-    (window, document, "script", " https://mc.yandex.ru/metrika/tag.js ", "ym");
-
-    ym(99999999, "init", {
-      clickmap:true,
-      trackLinks:true,
-      accurateTrackBounce:true
-    });
-  </script>
-  <noscript><div><img src="https://mc.yandex.ru/watch/99999999 " style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
-      background-color: #f9f5f1;
+      background-color: #f5e6fa; /* Лавандовый фон */
       color: #4a4a4a;
     }
 
     header {
-      background: white;
+      background: #ffffff;
       padding: 40px 20px;
       text-align: center;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 36px;
+      font-family: 'Great Vibes', cursive;
+      color: #8e44ad;
+    }
+
+    header p {
+      font-family: 'Sacramento', cursive;
+      font-size: 24px;
+      color: #9b59b6;
     }
 
     .avatar {
@@ -43,95 +39,97 @@
       height: 150px;
       border-radius: 50%;
       object-fit: cover;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border: 4px solid #dcdcdc;
+      margin-bottom: 15px;
     }
 
-    header h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 36px;
-      color: #3e8fc6;
-      margin: 0;
-    }
-
-    header p {
-      font-family: 'Sacramento', cursive;
-      font-size: 20px;
-      color: #777;
-      margin-top: 10px;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 20px;
-    }
-
-    nav a {
-      text-decoration: none;
-      font-family: 'Great Vibes', cursive;
-      font-size: 22px;
-      color: #3e8fc6;
-      font-weight: bold;
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
     }
 
     section {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
+      margin-bottom: 40px;
     }
 
     h2 {
       font-family: 'Great Vibes', cursive;
-      font-size: 28px;
-      color: #3e8fc6;
-      border-bottom: 2px solid #a2cfff;
+      font-size: 30px;
+      color: #7a3e8c;
+      border-bottom: 2px solid #eee;
       padding-bottom: 10px;
     }
 
-    .portfolio-item {
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
       background: white;
       padding: 20px;
-      margin-bottom: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
     }
 
-    form {
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    .card:hover {
+      transform: translateY(-5px);
     }
 
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
+    .card h3 {
+      font-size: 20px;
+      margin-top: 0;
     }
 
-    button {
-      background: #3e8fc6;
-      color: white;
-      border: none;
+    .contact-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .contact-btn {
+      display: inline-block;
       padding: 10px 20px;
-      cursor: pointer;
-      border-radius: 4px;
+      background: #9b59b6;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .contact-btn:hover {
+      background: #8e44ad;
     }
 
     footer {
       text-align: center;
       padding: 20px;
-      background: #ecf0f1;
-      color: #777;
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
     }
 
     @media (max-width: 600px) {
-      nav {
-        flex-direction: column;
-        gap: 10px;
+      header h1 {
+        font-size: 28px;
+      }
+      header p {
+        font-size: 20px;
       }
     }
 
@@ -141,91 +139,105 @@
       -moz-user-select: none;
       -ms-user-select: none;
       user-select: none;
+      -webkit-touch-callout: none;
     }
 
     ::selection {
       background: transparent;
     }
   </style>
-  <script>
-    function copyLink() {
-      navigator.clipboard.writeText(window.location.href).then(() => {
-        alert("Ссылка скопирована: " + window.location.href);
-      }).catch(err => {
-        alert("Не удалось скопировать ссылку");
-      });
-    }
-
-    // Блокировка контекстного меню и горячих клавиш
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    document.onkeydown = function(e) {
-      if (event.keyCode === 123) return false; // F12
-      if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 85)) { // Ctrl+C, Ctrl+V, Ctrl+U
-        return false;
-      }
-    };
-  </script>
 </head>
 <body>
 
   <header>
-    <!-- Твоё фото из файла -->
-    <img src="https://i.imgur.com/MomJN33.jpg " alt="Фото Юлии" class="avatar" />
+    <img src=" https://via.placeholder.com/150 " alt="Фото Юлии" class="avatar" />
     <h1>Юлия Михеева</h1>
-    <p>Копирайтер с сильными сторонами — грамотность, внимание к деталям, умение вникать в бизнес клиента</p>
-    <nav>
-      <a href="#about">Обо мне</a>
-      <a href="#services">Услуги</a>
-      <a href="#portfolio">Портфолио</a>
-      <a href="#contacts">Контакты</a>
-    </nav>
+    <p>Профессиональный копирайтер</p>
   </header>
 
-  <section id="about">
-    <h2>Обо мне</h2>
-    <p>Меня зовут Юлия, я копирайтер с сильными сторонами — грамотностью, внимательностью к деталям и умением быстро вникать в особенности бизнеса клиента. Постоянно занимаюсь самообразованием, прошла несколько онлайн-курсов. Ответственно подхожу к срокам, готова развиваться вместе с вашими проектами и приложу все усилия, чтобы достичь нужного вам результата!</p>
-  </section>
+  <div class="container">
 
-  <section id="services">
-    <h2>Услуги</h2>
-    <ul>
-      <li>Написание статей для площадок (vc.ru, dzen.ru, журналы)</li>
-      <li>Перевод научных статей с указанием источников</li>
-      <li>Написание сценариев подкастов с использованием ИИ</li>
-      <li>SEO-оптимизация текстов</li>
-      <li>Редактура и коррекция контента</li>
-    </ul>
-  </section>
+    <section id="about">
+      <h2>Обо мне</h2>
+      <p>Привет! Меня зовут Юлия, и я занимаюсь написанием текстов для vc.ru, dzen.ru и других площадок. Помогаю бизнесам выразить свои идеи через чёткие, структурированные и SEO-оптимизированные тексты.</p>
+    </section>
 
-  <section id="portfolio">
-    <h2>Портфолио</h2>
+    <section id="services">
+      <h2>Услуги</h2>
+      <ul>
+        <li>Написание статей для vc.ru, dzen.ru</li>
+        <li>Перевод научных работ с английского на русский</li>
+        <li>Создание сценариев для подкастов (с использованием ИИ)</li>
+        <li>SEO-оптимизация текстов</li>
+        <li>Редактирование и корректура</li>
+      </ul>
+    </section>
 
-    <div class="portfolio-item">
-      <h3>Чистота без компромиссов: почему Mr.Clean24 — ваш надёжный партнёр в уборке</h3>
-      <p><strong>Задача:</strong> Написать статью о клининговой компании MrClean24.</p>
-      <p><strong>Описание:</strong> Полностью оригинальный текст, уникальность — 96.39%. Тематика: послестроительная, поддерживающая и генеральная уборка.</p>
-    </div>
+    <section id="portfolio">
+      <h2>Портфолио</h2>
+      <div class="portfolio-grid">
+        <div class="card">
+          <h3>Чистота без компромиссов: почему Mr.Clean24 — ваш надёжный партнёр в уборке</h3>
+          <p>Статья о клининговой компании, где я подробно разобрала преимущества профессиональной уборки и особенности работы сервиса Mr.Clean24.</p>
+        </div>
+        <div class="card">
+          <h3>Современные методы лазерной эпиляции: мифы и реальность</h3>
+          <p>Научно-популярная статья о том, как работает лазерная эпиляция, какие есть противопоказания и чего на самом деле стоит опасаться.</p>
+        </div>
+      </div>
+    </section>
 
-    <div class="portfolio-item">
-      <h3>Современные методы лазерной эпиляции: мифы и реальность</h3>
-      <p><strong>Задача:</strong> Публикации для vc.ru, dzen.ru, journal.tinkoff.ru</p>
-      <p><strong>Описание:</strong> Анализ площадок, перевод зарубежных статей, написание двух вариантов текста для публикаций.</p>
-    </div>
+    <section id="gallery">
+      <h2>Галерея фото</h2>
+      <div class="gallery">
+        <img src="https://via.placeholder.com/300x200?text=Mr.Clean24" alt="Mr.Clean24" />
+        <img src=" https://via.placeholder.com/300x200?text=Анализ+текста" alt="Анализ текста" />
+        <img src=" https://via.placeholder.com/300x200?text=Эпиляция" alt="Лазерная эпиляция" />
+      </div>
+    </section>
 
-  </section>
+    <section id="contacts">
+      <h2>Контакты</h2>
+      <div class="contact-buttons">
+        <a href=" https://wa.me/79102212818 " target="_blank" class="contact-btn">WhatsApp</a>
+        <a href="https://t.me/Juljetta79 " target="_blank" class="contact-btn">Telegram</a>
+        <a href="https://vk.com/juljetta79 " target="_blank" class="contact-btn">VK</a>
+      </div>
+    </section>
 
-  <section id="contacts">
-    <h2>Контакты</h2>
-    <p><strong>Телефон:</strong> +7 (910) 221-28-18 (WhatsApp)<br/>
-       <strong>Email:</strong> miheevascorpion@yandex.ru<br/>
-       <strong>VK:</strong> <a href="https://vk.com/juljetta79 " target="_blank">Профиль ВКонтакте</a>
-    </p>
-    <button onclick="copyLink()">Скопировать ссылку на портфолио</button>
-  </section>
+  </div>
 
   <footer>
-    &copy; 2025 Юлия Михеева — Копирайтер
+    &copy; 2025 Юлия Михеева. Все права защищены.
   </footer>
+
+  <!-- Яндекс.Метрика -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js ", "ym");
+
+    ym(99999999, "init", {
+         clickmap:true,
+         trackLinks:true,
+         accurateTrackBounce:true
+    });
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/99999999 " style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Яндекс.Метрика -->
+
+  <!-- Защита от действий -->
+  <script>
+    // Запрет на F12 и Ctrl+Shift+I
+    document.onkeydown = function(e) {
+      if (event.keyCode === 123 || (e.ctrlKey && e.shiftKey && e.keyCode === 73)) {
+        return false;
+      }
+    };
+
+    // Запрет на контекстное меню
+    document.addEventListener('contextmenu', e => e.preventDefault());
+  </script>
 
 </body>
 </html>
