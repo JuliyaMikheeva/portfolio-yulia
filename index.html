@@ -10,7 +10,7 @@
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
-      background-color: #f5e6fa;
+      background-color: #f5e6fa; /* Лавандовый фон */
       color: #4a4a4a;
     }
 
@@ -61,69 +61,27 @@
       padding-bottom: 10px;
     }
 
-    .services-grid,
-    .digital-services-grid {
+    .portfolio-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 20px;
     }
 
-    .service-card {
+    .card {
       background: white;
       padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       transition: transform 0.3s ease;
     }
 
-    .service-card:hover {
+    .card:hover {
       transform: translateY(-5px);
     }
 
-    .service-card img {
-      width: 40px;
-      height: 40px;
-      margin-bottom: 10px;
-    }
-
-    .service-card h3 {
-      font-size: 18px;
-      margin: 0 0 10px;
-    }
-
-    form {
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    button {
-      background: #9b59b6;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #8e44ad;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-      color: #aaa;
+    .card h3 {
+      font-size: 20px;
+      margin-top: 0;
     }
 
     .contact-buttons {
@@ -131,7 +89,6 @@
       justify-content: center;
       gap: 15px;
       flex-wrap: wrap;
-      margin-top: 20px;
     }
 
     .contact-btn {
@@ -148,12 +105,41 @@
     .contact-btn:hover {
       background: #8e44ad;
     }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 28px;
+      }
+      header p {
+        font-size: 20px;
+      }
+    }
+
+    /* Защита от копирования */
+    body {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
+    }
+
+    ::selection {
+      background: transparent;
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <img src=" https://imgur.com/MomJN33" alt="Фото Юлии" class="avatar" />
+    <img src="https://i.imgur.com/ MomJN33.jpg" alt="Фото Юлии" class="avatar" />
     <h1>Юлия Михеева</h1>
     <p>Профессиональный копирайтер</p>
   </header>
@@ -162,88 +148,43 @@
 
     <section id="about">
       <h2>Обо мне</h2>
-      <p>Привет! Меня зовут Юлия, я занимаюсь написанием текстов для vc.ru, dzen.ru и других площадок. Помогаю бизнесам выразить свои идеи через чёткие, структурированные и SEO-оптимизированные тексты.</p>
+      <p>Привет! Меня зовут Юлия, и я занимаюсь написанием текстов для vc.ru, dzen.ru и других площадок. Помогаю бизнесам выразить свои идеи через чёткие, структурированные и SEO-оптимизированные тексты.</p>
     </section>
 
     <section id="services">
       <h2>Услуги</h2>
-      <div class="services-grid">
-        <div class="service-card">
-          <img src="https://img.icons8.com/ios-filled/50/000000/document.png " alt="Документ">
-          <h3>Написание статей</h3>
-          <p>Для vc.ru, dzen.ru и других площадок</p>
-        </div>
-        <div class="service-card">
-          <img src="https://img.icons8.com/ios-filled/50/000000/book.png " alt="Книга">
-          <h3>Перевод научных работ</h3>
-          <p>С английского на русский язык</p>
-        </div>
-        <div class="service-card">
-          <img src="https://img.icons8.com/ios-filled/50/000000/podcast.png " alt="Подкаст">
-          <h3>Сценарии для подкастов</h3>
-          <p>С использованием ИИ</p>
-        </div>
-        <div class="service-card">
-          <img src="https://img.icons8.com/ios-filled/50/000000/search--v1.png " alt="SEO">
-          <h3>SEO-оптимизация</h3>
-          <p>Улучшение текстов под поисковую выдачу</p>
-        </div>
-        <div class="service-card">
-          <img src="https://img.icons8.com/ios-filled/50/000000/edit.png " alt="Редактор">
-          <h3>Редакция и корректура</h3>
-          <p>Чистка текста от ошибок и улучшение стиля</p>
-        </div>
-      </div>
+      <ul>
+        <li>Написание статей для vc.ru, dzen.ru</li>
+        <li>Перевод научных работ с английского на русский</li>
+        <li>Создание сценариев для подкастов (с использованием ИИ)</li>
+        <li>SEO-оптимизация текстов</li>
+        <li>Редактирование и корректура</li>
+        <li>Написание кода документов Google Docs</li>
+        <li>Контент для соцсетей с использованием ИИ</li>
+        <li>Создание страниц ВК, Telegram-каналов</li>
+        <li>Упаковка аккаунтов: шапка профиля, УТП, стиль подачи</li>
+        <li>Создание Telegram-чат-ботов</li>
+      </ul>
     </section>
 
-    <section id="digital-services">
-      <h2>Цифровые решения</h2>
-      <div class="digital-services-grid">
-        <div class="service-card">
-          <img src="https://img.icons8.com/ios-filled/50/000000/google-docs.png " alt="Google Docs">
-          <h3>Написание кода документов Google Docs</h3>
-          <p>Оформление и автоматизация в документах</p>
+    <section id="portfolio">
+      <h2>Портфолио</h2>
+      <div class="portfolio-grid">
+        <div class="card">
+          <h3>Чистота без компромиссов: почему Mr.Clean24 — ваш надёжный партнёр в уборке</h3>
+          <p>Статья о клининговой компании, где я подробно разобрала преимущества профессиональной уборки и особенности работы сервиса Mr.Clean24.</p>
         </div>
-        <div class="service-card">
-          <img src="https://img.icons8.com/ios-filled/50/000000/social-media.png " alt="Соцсети">
-          <h3>Контент для соцсетей с ИИ</h3>
-          <p>Для любой ниши и платформы</p>
-        </div>
-        <div class="service-card">
-          <img src="https://img.icons8.com/ios-filled/50/000000/vk-circled.png " alt="VK">
-          <h3>Создание страниц ВК / Telegram-каналов</h3>
-          <p>С нуля до запуска</p>
-        </div>
-        <div class="service-card">
-          <img src="https://img.icons8.com/ios-filled/50/000000/user-profile-circle.png " alt="Аккаунт">
-          <h3>Упаковка аккаунта</h3>
-          <p>Шапка профиля, УТП, стиль подачи</p>
-        </div>
-        <div class="service-card">
-          <img src="https://img.icons8.com/ios-filled/50/000000/telegram.png " alt="Telegram">
-          <h3>Telegram-чат-боты</h3>
-          <p>Автоматизация общения и обслуживания клиентов</p>
+        <div class="card">
+          <h3>Современные методы лазерной эпиляции: мифы и реальность</h3>
+          <p>Научно-популярная статья о том, как работает лазерная эпиляция, какие есть противопоказания и чего на самом деле стоит опасаться.</p>
         </div>
       </div>
     </section>
 
     <section id="contacts">
       <h2>Контакты</h2>
-      <div class="contact-buttons">
-        <a href="https://wa.me/79102212818 " target="_blank" class="contact-btn">WhatsApp</a>
-        <a href="https://t.me/Juljetta79 " target="_blank" class="contact-btn">Telegram</a>
-        <a href="https://vk.com/juljetta79 " target="_blank" class="contact-btn">VK</a>
-      </div>
-    </section>
-
-    <section id="form">
-      <h2>Свяжитесь со мной</h2>
-      <form>
-        <input type="text" placeholder="Ваше имя" required>
-        <input type="email" placeholder="Ваш email" required>
-        <textarea rows="5" placeholder="Сообщение"></textarea>
-        <button type="submit">Отправить</button>
-      </form>
+      <p><strong>WhatsApp:</strong> +7 (XXX) XXX-XX-XX</p>
+      <p><strong>VK:</strong> <a href="https://vk.com/juljetta79 " target="_blank">vk.com/juljetta79</a></p>
     </section>
 
   </div>
