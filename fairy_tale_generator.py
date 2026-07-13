@@ -57,6 +57,4 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-    # Вывод результата крупным шрифтом в красивом блоке
-    story = f"Однажды {hero} нашел {item}, но вдруг {problem}!"
-    st.markdown(f'<div class="story-text">{story}</div>', unsafe_allow_html=True)
+  
