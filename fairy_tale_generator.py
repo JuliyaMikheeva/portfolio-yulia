@@ -1,61 +1,68 @@
 import streamlit as st
 import random
 
+# Настройка страницы
 st.set_page_config(page_title="Генератор Нейросказок", page_icon="🧚♀️")
 
-# Списки данных
-heroes = ["Ленивый дракон", "Забывчивый волшебник", "Кот в сапогах", "Храбрый пирожок", "Грустный тролль"]
-items = ["невидимые очки", "сапоги-скороходы", "волшебная сосиска", "золотая вилка", "шапка-невидимка"]
-problems = ["потерял ключи от замка", "забыл заклинание", "хочет стать пекарем", "случайно превратился в лягушку", "испугался собственной тени"]
-
-# Стилизация (CSS)
+# Стили (как раньше, чтобы было красиво)
 st.markdown("""
     <style>
-    body {
-        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        font-family: 'Helvetica Neue', sans-serif;
+    .stApp { background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); min-height: 100vh; }
+    h1 { font-family: 'Comic Sans MS', sans-serif; color: #4a4a4a; text-align: center; }
+    .story-box { 
+        background-color: rgba(255, 255, 255, 0.9); 
+        padding: 30px; 
+        border-radius: 20px; 
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
+        margin-top: 20px; 
+        font-size: 18px; 
+        line-height: 1.6; 
+        color: #2c3e50;
     }
-    .stButton > button {
-        width: 100%;
-        height: 80px;
-        font-size: 24px;
-        background-color: #28a745;
-        color: white;
-        border-radius: 15px;
-        border: none;
-        transition: all 0.3s ease;
-    }
-    .stButton > button:hover {
-        background-color: #218838;
-        transform: scale(1.02);
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
-    .result-box {
-        background-color: white;
-        padding: 40px;
-        border-radius: 20px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        text-align: center;
-        font-size: 28px;
-        color: #333;
-        margin-top: 30px;
-        line-height: 1.5;
+    div.stButton > button { 
+        background-color: #2ecc71; color: white; font-size: 20px; 
+        padding: 15px 30px; border-radius: 50px; border: none; width: 100%; 
     }
     </style>
 """, unsafe_allow_html=True)
 
-# Заголовок
-st.title("Генератор Нейросказок 🧚♀️")
+st.title("🧚♀️ Генератор Нейросказок")
+st.write("Нажми кнопку, и я придумаю для тебя уникальную историю!")
 
-# Кнопка
-if st.button("🎲 Придумать новую сказку"):
+# Данные для генерации
+heroes = ["Ленивый дракон", "Забывчивый волшебник", "Кот в сапогах", "Принцесса-хакер", "Говорящее дерево"]
+items = ["невидимые очки", "сапоги-скороходы", "волшебная сосиска", "бесконечный кофе", "золотой ключик"]
+problems = ["потерял ключи от замка", "забыл заклинание", "хочет стать пекарем", "случайно превратился в лягушку"]
+endings = [
+    "И с тех пор они жили дружно и пекли пироги.",
+    "Оказывается, главное волшебство — это доброта!",
+    "Так он понял, что быть собой — лучше всего.",
+    "И даже драконы иногда нуждаются в друзьях."
+]
+
+# Логика генерации полной сказки
+def generate_full_story():
     hero = random.choice(heroes)
     item = random.choice(items)
     problem = random.choice(problems)
+    ending = random.choice(endings)
     
-    story = f"Однажды {hero} нашел {item}, но вдруг {problem}!"
+    story = f"""
+    Жил-был {hero}. Он был очень необычным, потому что любил приключения больше всего на свете.
     
-    # Вывод результата
-    st.markdown(f'<div class="result-box">{story}</div>', unsafe_allow_html=True)
-else:
-    st.markdown('<div class="result-box">Нажми на кнопку, чтобы создать чудо! ✨</div>', unsafe_allow_html=True)
+    Однажды утром {hero} проснулся и обнаружил, что у него есть {item}. 
+    "Ура!" — подумал он. — "Теперь я смогу совершить великий подвиг!"
+    
+    Но тут случилась беда: {hero} {problem}. 
+    Он расстроился и чуть не заплакал. Но потом вспомнил про {item} и решил не сдаваться.
+    
+    {hero} использовал {item}, чтобы решить проблему. Это было непросто, но он справился!
+    
+    {ending}
+    """
+    return story
+
+# Кнопка и вывод
+if st.button("✨ Придумать новую сказку"):
+    full_story = generate_full_story()
+    st.markdown(f'<div class="story-box">{full_story}</div>', unsafe_allow_html=True)
