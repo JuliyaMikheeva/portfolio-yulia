@@ -1,7 +1,3 @@
---- fairy_tale_generator.py (原始)
-
-
-+++ fairy_tale_generator.py (修改后)
 import streamlit as st
 import random
 
@@ -60,19 +56,6 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Заголовок приложения с эмодзи
-st.title("🧚♀️ Генератор Нейросказок")
-
-# Списки элементов
-heroes = ["Ленивый дракон", "Забывчивый волшебник", "Кот в сапогах"]
-items = ["невидимые очки", "сапоги-скороходы", "волшебная сосиска"]
-problems = ["потерял ключи от замка", "забыл заклинание", "хочет стать пекарем"]
-
-# Кнопка для генерации новой сказки
-if st.button("✨ Придумать сказку"):
-    hero = random.choice(heroes)
-    item = random.choice(items)
-    problem = random.choice(problems)
 
     # Вывод результата крупным шрифтом в красивом блоке
     story = f"Однажды {hero} нашел {item}, но вдруг {problem}!"
