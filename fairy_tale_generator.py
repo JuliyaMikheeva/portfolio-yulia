@@ -65,4 +65,4 @@ def generate_full_story():
 # Кнопка и вывод
 if st.button("✨ Придумать новую сказку"):
     full_story = generate_full_story()
-    st.markdown(f'<div class="story-box">{full_story}</div>', unsafe_allow_html=True)
+st.markdown(f'<div class="story-box">{full_story}</div>', unsafe_allow_html=True)
