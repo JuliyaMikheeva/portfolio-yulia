@@ -1,6 +1,4 @@
 import streamlit as st
-from pathlib import Path
-import os
 
 st.set_page_config(
     page_title="Нейромастерская НЮансов", 
@@ -9,7 +7,6 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Путь к фото
 photo_path = "team-photo.jpg"
 
 st.markdown("""
@@ -73,6 +70,16 @@ st.markdown("""
         background: #0088cc; color: white; border-radius: 20px;
         text-decoration: none; font-size: 0.9em;
     }
+    .photo-container {
+        text-align: center;
+        margin: 20px 0;
+    }
+    .photo-container img {
+        max-width: 400px !important;
+        height: auto;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
     </style>
 """, unsafe_allow_html=True)
 
@@ -94,11 +101,10 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
-# Показываем фото команды
-try:
-    st.image(photo_path, caption="Юлия и Наталья — основатели Нейромастерской", use_container_width=True)
-except:
-    st.info("📸 Фото команды (загрузите файл team-photo.jpg в репозиторий)")
+# Показываем фото команды с ограничением ширины
+st.markdown('<div class="photo-container">', unsafe_allow_html=True)
+st.image(photo_path, caption="Юлия и Наталья — основатели Нейромастерской", width=400)
+st.markdown('</div>', unsafe_allow_html=True)
 
 col1, col2 = st.columns(2)
 
@@ -175,6 +181,15 @@ st.markdown("""
             <li>Отмена в любой момент</li>
         </ul>
         <br><br>
-        <a href="https://t.me/a_yulija19790111" class="btn-primary" target="_blank">💫 Написать Юлии: "Хочу в клуб"</a>
+        <a href="https://t.me/a_yulija19790111" class="btn-primary" target="_blank"> Написать Юлии: "Хочу в клуб"</a>
+    </div>
+""", unsafe_allow_html=True)
+
+st.markdown("---")
+st.markdown("""
+    <div style="text-align: center; color: #777; padding: 20px;">
+        <p>Простой ИИ без стресса и сложных терминов.</p>
+        <p><b>Юлия и Наталья</b> 💫</p>
+        <p><a href="https://t.me/praktikumdlynahinajuchih" style="color: #7b1fa2; text-decoration: none;">Перейти в наш бесплатный Telegram-канал</a></p>
     </div>
 """, unsafe_allow_html=True)
