@@ -8,7 +8,6 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Пути к фото
 yulia_photo = "yulia.jpg"
 natalia_photo = "natalia.jpg"
 
@@ -245,16 +244,32 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
-# 3. КАРТОЧКИ ЭКСПЕРТОВ С ФОТО (используем st.image)
+# 3. ФОТО ЭКСПЕРТОВ (по центру, большие)
+st.markdown("### ")
+photo_col1, photo_col2 = st.columns(2)
+
+with photo_col1:
+    col_left, col_center, col_right = st.columns([1, 2, 1])
+    with col_center:
+        try:
+            st.image(yulia_photo, caption="Юлия Михеева", width=300, use_container_width=False)
+        except:
+            st.info("📸 Фото Юлии")
+
+with photo_col2:
+    col_left, col_center, col_right = st.columns([1, 2, 1])
+    with col_center:
+        try:
+            st.image(natalia_photo, caption="Наталья Урванцева", width=300, use_container_width=False)
+        except:
+            st.info("📸 Фото Натальи")
+
+st.markdown("<br>", unsafe_allow_html=True)
+
+# 4. КАРТОЧКИ ЭКСПЕРТОВ
 col1, col2 = st.columns(2)
 
 with col1:
-    # Показываем фото Юлии
-    try:
-        st.image(yulia_photo, caption="Юлия Михеева", width=220)
-    except:
-        st.info("📸 Фото Юлии")
-    
     st.markdown("""
         <div class="card expert-card">
             <h3>🛠 Юлия Михеева</h3>
@@ -271,12 +286,6 @@ with col1:
     """, unsafe_allow_html=True)
 
 with col2:
-    # Показываем фото Натальи
-    try:
-        st.image(natalia_photo, caption="Наталья Урванцева", width=220)
-    except:
-        st.info("📸 Фото Натальи")
-    
     st.markdown("""
         <div class="card expert-card card-purple">
             <h3>🎨 Наталья Урванцева</h3>
@@ -292,7 +301,7 @@ with col2:
         </div>
     """, unsafe_allow_html=True)
 
-# 4. СРАВНЕНИЕ
+# 5. СРАВНЕНИЕ
 st.markdown("## ⚖️ Бесплатный практикум vs Платный клуб")
 
 col1, col2 = st.columns(2)
@@ -328,7 +337,7 @@ with col2:
         </div>
     """, unsafe_allow_html=True)
 
-# 5. УСЛОВИЯ
+# 6. УСЛОВИЯ
 st.markdown("## 💰 Условия участия в клубе")
 st.markdown("""
     <div class="card card-purple" style="text-align: center; border: 3px solid #8E24AA;">
@@ -345,7 +354,7 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
-# 6. ПОДВАЛ
+# 7. ПОДВАЛ
 st.markdown("---")
 st.markdown("""
     <footer>
