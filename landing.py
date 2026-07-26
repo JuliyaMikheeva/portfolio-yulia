@@ -25,6 +25,16 @@ st.markdown("""
         border-left: 5px solid #fbc02d;
     }
     .card-purple { border-left: 5px solid #7b1fa2; }
+    .expert-card {
+        text-align: center; padding: 20px;
+    }
+    .expert-photo {
+        width: 200px; height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 15px;
+        border: 4px solid #fbc02d;
+    }
     .btn-primary {
         background-color: #7b1fa2; color: white !important;
         padding: 15px 30px; border-radius: 30px; text-decoration: none;
@@ -38,15 +48,23 @@ st.markdown("""
         margin: 10px; transition: transform 0.2s;
     }
     .btn-primary:hover, .btn-secondary:hover { transform: scale(1.05); }
-    .comparison-table {
-        width: 100%; border-collapse: collapse; margin: 20px 0;
-        background: white; border-radius: 10px; overflow: hidden;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    .comparison-card {
+        background: white; padding: 25px; border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 20px;
     }
-    .comparison-table th, .comparison-table td {
-        border: 1px solid #e0e0e0; padding: 15px; text-align: left;
+    .comparison-card h3 {
+        text-align: center; margin-bottom: 20px; padding: 15px;
+        border-radius: 10px; color: white;
     }
-    .comparison-table th { background-color: #f3e5f5; color: #4a148c; font-size: 1.1em; }
+    .free-title { background: linear-gradient(135deg, #66bb6a, #43a047); }
+    .club-title { background: linear-gradient(135deg, #7b1fa2, #5e35b1); }
+    .comparison-card ul {
+        list-style: none; padding: 0; line-height: 2;
+    }
+    .comparison-card li:before {
+        content: "✓ "; color: #43a047; font-weight: bold;
+        margin-right: 8px;
+    }
     .review-box {
         background: #f3e5f5; padding: 20px; border-radius: 15px;
         border-left: 5px solid #7b1fa2; margin: 15px 0; font-style: italic;
@@ -61,11 +79,11 @@ st.markdown("""
         <p>Бесплатный практикум для первых шагов + закрытый клуб «Нейромастерская НЮансов» для глубокого погружения.</p>
         <br>
         <a href="https://t.me/praktikumdlynahinajuchih" class="btn-secondary" target="_blank">🎁 Начать с бесплатного практикума</a>
-        <a href="https://t.me/+e4CJuDcXMro3ODcy" class="btn-primary" target="_blank">💫 Посмотреть, что внутри клуба</a>
+        <a href="https://t.me/+e4CJuDcXMro3ODcy" class="btn-primary" target="_blank"> Посмотреть, что внутри клуба</a>
     </div>
 """, unsafe_allow_html=True)
 
-st.markdown("## 👩‍💻 Эксперты Юлия и Наталья")
+st.markdown("## 👩‍ Эксперты Юлия и Наталья")
 st.markdown("""
     <div class="card">
         <p>Наша задача простая: помочь внедрить ИИ в повседневные дела и довести каждую идею до результата — «рука об руку».</p>
@@ -77,32 +95,34 @@ col1, col2 = st.columns(2)
 
 with col1:
     st.markdown("""
-        <div class="card">
+        <div class="card expert-card">
+            <img src="https://via.placeholder.com/200" alt="Юлия Михеева" class="expert-photo">
             <h3>🛠 Юлия Михеева</h3>
             <p><b>Куратор-практик по нейросетям и цифровым инструментам</b></p>
             <p>Суперсила — превращать сложное в простое и доводить каждую задачу до конца.</p>
-            <ul>
+            <ul style="text-align: left; line-height: 1.8;">
                 <li><b>Техническая экспертиза:</b> Создает чат-ботов, ИИ-агентов, пишет код, автоматизирует таблицы.</li>
                 <li><b>Опыт в поддержке:</b> 10+ лет в Ozon, Мегамаркет, Роснефть. Знает "кухню" сервисов изнутри.</li>
                 <li><b>Автор 5 детских книг на Литрес</b> (текст и иллюстрации с помощью ИИ).</li>
                 <li><b>Финансист и специалист по госзакупкам.</b></li>
-                <li><b>Подход:</b> «Рука об руку» — рядом, пока не получится. Без заумных терминов.</li>
+                <li><b>Подход:</b> «Рука об руку» — рядом, пока не получится.</li>
             </ul>
         </div>
     """, unsafe_allow_html=True)
 
 with col2:
     st.markdown("""
-        <div class="card card-purple">
+        <div class="card expert-card card-purple">
+            <img src="https://via.placeholder.com/200" alt="Наталья Урванцева" class="expert-photo">
             <h3>🎨 Наталья Урванцева</h3>
             <p><b>Наставник по практическому применению ИИ</b></p>
             <p>Суперсила — подбирать инструмент под задачу человека, а не человека под инструмент.</p>
-            <ul>
+            <ul style="text-align: left; line-height: 1.8;">
                 <li><b>Высшее юридическое образование</b> — системное мышление и надежность.</li>
                 <li><b>Сооснователь «Нейромастерской»</b> и автор проекта «Пиксельные сказки».</li>
-                <li><b>Широкий спектр компетенций:</b> AI-видео, инфографика, иллюстрации, презентации, сценарии.</li>
-                <li><b>Практик, а не теоретик:</b> метод работы строится на реальной задаче. Сначала результат, потом понимание.</li>
-                <li><b>Философия:</b> «Не учу пользоваться кнопками — учу думать и применять технологии осознанно».</li>
+                <li><b>Широкий спектр компетенций:</b> AI-видео, инфографика, иллюстрации, презентации.</li>
+                <li><b>Практик, а не теоретик:</b> метод работы строится на реальной задаче.</li>
+                <li><b>Философия:</b> «Не учу пользоваться кнопками — учу думать осознанно».</li>
             </ul>
         </div>
     """, unsafe_allow_html=True)
@@ -114,43 +134,44 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.markdown("## ⚖️ Бесплатный практикум vs Платный клуб")
-st.markdown("""
-    <table class="comparison-table">
-        <tr>
-            <th>🎁 Бесплатный практикум</th>
-            <th>💫 Клуб «Нейромастерская НЮансов»</th>
-        </tr>
-        <tr>
-            <td>Мини-гайды и первые шаги в ИИ</td>
-            <td>Глубокое погружение и готовые рабочие связки</td>
-        </tr>
-        <tr>
-            <td>Обзоры нейросетей для визуала и текста</td>
-            <td>Библиотека записей уроков, промптов и сервисов</td>
-        </tr>
-        <tr>
-            <td>Самостоятельное изучение материалов</td>
-            <td><b>Живые эфиры</b> с разборами почти каждые выходные</td>
-        </tr>
-        <tr>
-            <td>Общая информация и база</td>
-            <td><b>Персональная обратная связь:</b> задавайте вопросы в общую автоматизированную таблицу, и мы гарантированно разберем их на эфире</td>
-        </tr>
-        <tr>
-            <td>База</td>
-            <td><b>Новые темы:</b> детальные разборы оформления соцсетей, создание ИИ-агентов и многое другое</td>
-        </tr>
-    </table>
-""", unsafe_allow_html=True)
+
+col1, col2 = st.columns(2)
+
+with col1:
+    st.markdown("""
+        <div class="comparison-card">
+            <h3 class="free-title"> Бесплатный практикум</h3>
+            <ul>
+                <li>Мини-гайды и первые шаги в ИИ</li>
+                <li>Обзоры нейросетей для визуала и текста</li>
+                <li>Самостоятельное изучение материалов</li>
+                <li>Общая информация и база</li>
+            </ul>
+        </div>
+    """, unsafe_allow_html=True)
+
+with col2:
+    st.markdown("""
+        <div class="comparison-card">
+            <h3 class="club-title">💫 Клуб «Нейромастерская НЮансов»</h3>
+            <ul>
+                <li>Глубокое погружение и готовые рабочие связки</li>
+                <li>Библиотека записей уроков, промптов и сервисов</li>
+                <li><b>Живые эфиры</b> с разборами почти каждые выходные</li>
+                <li><b>Персональная обратная связь:</b> задавайте вопросы в общую автоматизированную таблицу</li>
+                <li><b>Новые темы:</b> разборы соцсетей, создание ИИ-агентов</li>
+            </ul>
+        </div>
+    """, unsafe_allow_html=True)
 
 st.markdown("## 🛠️ С чем мы работаем?")
 st.markdown("""
     <div class="card">
         <p>Главный принцип — давать инструменты, которые позволяют получить результат здесь и сейчас, без технических барьеров.</p>
         <ul>
-            <li>🇺 <b>Российские нейросети:</b> В планах добавить разборы Алисы, GigaChat и Шедеврум, чтобы понимать возможности и ограничения отечественных сервисов. Следите за обновлениями!</li>
-            <li>⚡ <b>Доступные и мощные инструменты:</b> Учим работать с DeepSeek (Дипсик), Qwen (Квен) и другими сервисами, которые дают отличный результат.</li>
-            <li>🌍 <b>Зарубежные гиганты:</b> Разбираем возможности ChatGPT, Gemini, Flow и Reve. Честно предупреждаем, что для них может понадобиться VPN, и показываем, как использовать их грамотно.</li>
+            <li>🇷🇺 <b>Российские нейросети:</b> В планах добавить разборы Алисы, GigaChat и Шедеврум.</li>
+            <li>⚡ <b>Доступные и мощные инструменты:</b> DeepSeek (Дипсик), Qwen (Квен) и другие.</li>
+            <li>🌍 <b>Зарубежные гиганты:</b> ChatGPT, Gemini, Flow и Reve (может понадобиться VPN).</li>
         </ul>
         <p><i>Сначала — результат и понимание, потом — нюансы!</i></p>
     </div>
@@ -162,9 +183,9 @@ st.markdown("""
         <ul style="line-height: 1.8; font-size: 1.05em;">
             <li>✅ Мама в декрете, которая хочет создавать красивый контент для семьи или начать подрабатывать.</li>
             <li>✅ Начинающий или действующий фрилансер, желающий ускорить работу и брать больше заказов.</li>
-            <li>✅ Владелец малого бизнеса или мастер (хендмейд, кондитер), которому нужна красивая упаковка без сложных программ.</li>
-            <li>✅ Офисный сотрудник или ассистент, мечтающий автоматизировать отчеты и письма, чтобы уходить с работы вовремя.</li>
-            <li>✅ Тот, кто пробовал бесплатные уроки, но запутался в терминах и хочет получить четкую структуру и поддержку.</li>
+            <li>✅ Владелец малого бизнеса или мастер (хендмейд, кондитер), которому нужна красивая упаковка.</li>
+            <li>✅ Офисный сотрудник или ассистент, мечтающий автоматизировать отчеты и письма.</li>
+            <li>✅ Тот, кто пробовал бесплатные уроки, но запутался в терминах.</li>
         </ul>
     </div>
 """, unsafe_allow_html=True)
@@ -178,7 +199,7 @@ st.markdown("""
         <p>📸 <i>Здесь будет скриншот отзыва №2 или примера работы ученика.</i></p>
     </div>
     <div class="review-box">
-        <p>📸 <i>Здесь будет скриншот изнутри клуба: фрагмент урока или чата.</i></p>
+        <p>📸 <i>Здесь будет скриншот изнутри клуба.</i></p>
     </div>
 """, unsafe_allow_html=True)
 
@@ -189,8 +210,8 @@ st.markdown("""
         <p style="font-size: 1.1em;">Прозрачные условия без скрытых платежей:</p>
         <ul style="text-align: left; display: inline-block; font-size: 1.05em; line-height: 1.6;">
             <li>Оплата производится раз в месяц удобным способом (перевод на карту).</li>
-            <li><b>Мы работаем официально.</b> За каждый чек отчитываемся в налоговую и платим налоги (статус самозанятого).</li>
-            <li>Отменить подписку можно в любой момент, просто написав нам. Доступ к клубу и архивным материалам сохраняется до конца оплаченного периода, после чего закрывается.</li>
+            <li><b>Мы работаем официально.</b> За каждый чек отчитываемся в налоговую (статус самозанятого).</li>
+            <li>Отменить подписку можно в любой момент. Доступ сохраняется до конца оплаченного периода.</li>
         </ul>
         <br><br>
         <a href="https://t.me/a_yulija19790111" class="btn-primary" target="_blank">💫 Написать Юлии: "Хочу в клуб"</a>
