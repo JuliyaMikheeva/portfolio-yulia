@@ -9,36 +9,36 @@ st.set_page_config(
 
 st.markdown("""
     <style>
-    /* ТЁМНАЯ ТЕМА */
+    /* СВЕТЛАЯ ТЕМА С ЯРКИМИ АКЦЕНТАМИ */
     .stApp { 
-        background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
-        color: #ffffff;
+        background: linear-gradient(135deg, #fff9f0 0%, #fff 50%, #f3e5f5 100%);
+        color: #333333;
     }
     h1, h2, h3 { 
-        color: #e0e0e0; 
+        color: #6A1B9A; 
         font-family: 'Georgia', serif; 
     }
     
     /* Главный экран */
     .hero {
         text-align: center; 
-        padding: 50px 20px;
-        background: linear-gradient(135deg, #6A1B9A 0%, #8E24AA 50%, #FDD835 100%);
-        border-radius: 20px; 
-        margin-bottom: 40px;
-        box-shadow: 0 8px 25px rgba(106, 27, 154, 0.4);
+        padding: 60px 30px;
+        background: linear-gradient(135deg, #8E24AA 0%, #AB47BC 50%, #FDD835 100%);
+        border-radius: 25px; 
+        margin-bottom: 50px;
+        box-shadow: 0 10px 40px rgba(142, 36, 170, 0.3);
     }
     .hero h1 { 
-        font-size: 2.8em; 
-        margin-bottom: 15px; 
+        font-size: 3em; 
+        margin-bottom: 20px; 
         color: #ffffff;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
     }
     .hero p { 
-        font-size: 1.3em; 
-        color: #fff9c4;
-        margin-bottom: 30px;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        font-size: 1.4em; 
+        color: #fffde7;
+        margin-bottom: 40px;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
     }
     
     /* Крупные цветные надписи-ссылки */
@@ -47,115 +47,116 @@ st.markdown("""
         justify-content: center;
         gap: 40px;
         flex-wrap: wrap;
-        margin-top: 20px;
+        margin-top: 30px;
     }
     .big-link {
-        font-size: 1.5em;
+        font-size: 1.6em;
         font-weight: bold;
         text-decoration: none;
-        padding: 15px 30px;
+        padding: 18px 35px;
         border-radius: 50px;
         transition: all 0.3s;
         display: inline-block;
-        background: rgba(255,255,255,0.15);
-        backdrop-filter: blur(10px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.2);
     }
     .big-link:hover { 
-        transform: scale(1.05);
-        background: rgba(255,255,255,0.25);
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.3);
     }
     .link-yellow {
         color: #1a1a2e;
-        background: #FDD835;
-        border: 2px solid #FDD835;
+        background: linear-gradient(135deg, #FDD835, #FBC02D);
+        border: 3px solid #F9A825;
     }
     .link-purple {
         color: #ffffff;
-        background: #6A1B9A;
-        border: 2px solid #8E24AA;
+        background: linear-gradient(135deg, #8E24AA, #6A1B9A);
+        border: 3px solid #AB47BC;
     }
     
     /* Карточки */
     .card {
-        background: rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(10px);
-        padding: 30px; 
-        border-radius: 15px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-        margin-bottom: 20px;
-        border-left: 5px solid #FDD835;
-        color: #e0e0e0;
+        background: white;
+        padding: 35px; 
+        border-radius: 20px;
+        box-shadow: 0 6px 25px rgba(142, 36, 170, 0.12);
+        margin-bottom: 25px;
+        border-left: 6px solid #FDD835;
+        color: #424242;
     }
     .card-purple { 
-        border-left: 5px solid #8E24AA; 
+        border-left: 6px solid #8E24AA; 
     }
     .expert-card { 
         text-align: center; 
-        padding: 20px; 
+        padding: 30px; 
     }
     
     /* Фото экспертов */
     .expert-photo {
-        width: 200px;
-        height: 200px;
+        width: 220px;
+        height: 220px;
         border-radius: 50%;
         object-fit: cover;
-        margin: 0 auto 20px;
+        margin: 0 auto 25px;
         display: block;
-        border: 4px solid #FDD835;
-        box-shadow: 0 4px 20px rgba(253, 216, 53, 0.4);
+        border: 5px solid #FDD835;
+        box-shadow: 0 6px 25px rgba(253, 216, 53, 0.4);
     }
     .expert-photo-natalia {
         border-color: #8E24AA;
-        box-shadow: 0 4px 20px rgba(142, 36, 170, 0.4);
+        box-shadow: 0 6px 25px rgba(142, 36, 170, 0.4);
     }
     
     /* Кнопки контактов */
     .btn-contact {
         display: block; 
         width: 100%; 
-        padding: 15px; 
-        margin-top: 15px;
-        background: linear-gradient(135deg, #6A1B9A, #8E24AA);
+        padding: 18px; 
+        margin-top: 20px;
+        background: linear-gradient(135deg, #8E24AA, #6A1B9A);
         color: white !important;
-        border-radius: 12px; 
+        border-radius: 15px; 
         text-decoration: none;
-        font-size: 1.1em; 
+        font-size: 1.2em; 
         font-weight: bold; 
         text-align: center;
         box-sizing: border-box;
-        box-shadow: 0 4px 15px rgba(106, 27, 154, 0.4);
+        box-shadow: 0 6px 20px rgba(142, 36, 170, 0.4);
+        transition: all 0.3s;
     }
     .btn-contact:hover { 
-        background: linear-gradient(135deg, #8E24AA, #6A1B9A);
-        box-shadow: 0 6px 20px rgba(106, 27, 154, 0.6);
+        background: linear-gradient(135deg, #AB47BC, #8E24AA);
+        box-shadow: 0 8px 25px rgba(142, 36, 170, 0.6);
+        transform: translateY(-2px);
     }
 
     /* Пульсирующие кнопки */
     @keyframes pulse-purple {
         0% { box-shadow: 0 0 0 0 rgba(142, 36, 170, 0.7); }
-        70% { box-shadow: 0 0 0 15px rgba(142, 36, 170, 0); }
+        70% { box-shadow: 0 0 0 20px rgba(142, 36, 170, 0); }
         100% { box-shadow: 0 0 0 0 rgba(142, 36, 170, 0); }
     }
     @keyframes pulse-yellow {
         0% { box-shadow: 0 0 0 0 rgba(253, 216, 53, 0.7); }
-        70% { box-shadow: 0 0 0 15px rgba(253, 216, 53, 0); }
+        70% { box-shadow: 0 0 0 20px rgba(253, 216, 53, 0); }
         100% { box-shadow: 0 0 0 0 rgba(253, 216, 53, 0); }
     }
     
     .btn-main {
-        padding: 15px 30px; 
+        padding: 18px 35px; 
         border-radius: 50px; 
         text-decoration: none;
         font-weight: bold; 
-        font-size: 1.1em; 
+        font-size: 1.2em; 
         display: inline-block;
-        margin: 10px; 
+        margin: 15px; 
         transition: all 0.3s; 
         border: none;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.2);
     }
     .btn-purple {
-        background: linear-gradient(135deg, #6A1B9A, #8E24AA);
+        background: linear-gradient(135deg, #8E24AA, #6A1B9A);
         color: white !important;
         animation: pulse-purple 2s infinite;
     }
@@ -165,71 +166,79 @@ st.markdown("""
         animation: pulse-yellow 2s infinite;
     }
     .btn-main:hover { 
-        transform: scale(1.05);
-        box-shadow: 0 6px 20px rgba(142, 36, 170, 0.5);
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.3);
     }
 
     /* Карточки сравнения */
     .comparison-card {
-        background: rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(10px);
-        padding: 25px; 
-        border-radius: 15px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-        margin-bottom: 20px;
+        background: white;
+        padding: 30px; 
+        border-radius: 20px;
+        box-shadow: 0 6px 25px rgba(142, 36, 170, 0.12);
+        margin-bottom: 25px;
         text-align: center;
-        border: 1px solid rgba(255,255,255,0.1);
+        border: 2px solid rgba(142, 36, 170, 0.1);
+        transition: all 0.3s;
+    }
+    .comparison-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 35px rgba(142, 36, 170, 0.2);
     }
     .comparison-card h3 {
-        margin-bottom: 20px; 
-        padding: 15px; 
-        border-radius: 10px; 
+        margin-bottom: 25px; 
+        padding: 18px; 
+        border-radius: 15px; 
         color: white;
+        font-size: 1.4em;
         text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
     }
     .free-title { 
-        background: linear-gradient(135deg, #43A047, #66BB6A); 
+        background: linear-gradient(135deg, #66BB6A, #43A047); 
     }
     .club-title { 
-        background: linear-gradient(135deg, #6A1B9A, #8E24AA); 
+        background: linear-gradient(135deg, #8E24AA, #6A1B9A); 
     }
     .comparison-card ul { 
         list-style: none; 
         padding: 0; 
-        line-height: 2; 
+        line-height: 2.2; 
         text-align: left;
-        color: #e0e0e0;
+        color: #424242;
+        font-size: 1.05em;
     }
     .comparison-card li:before { 
         content: "✓ "; 
         color: #66BB6A; 
         font-weight: bold; 
+        font-size: 1.2em;
         margin-right: 8px; 
     }
     
     .highlight { 
         background: linear-gradient(135deg, #FDD835, #FBC02D);
         color: #1a1a2e;
-        padding: 3px 8px; 
-        border-radius: 6px; 
+        padding: 5px 12px; 
+        border-radius: 8px; 
         font-weight: bold;
-        box-shadow: 0 2px 8px rgba(253, 216, 53, 0.3);
+        box-shadow: 0 3px 10px rgba(253, 216, 53, 0.3);
     }
     
     .buttons-row {
         display: flex;
         justify-content: center;
-        gap: 20px;
+        gap: 25px;
         flex-wrap: wrap;
-        margin-top: 20px;
+        margin-top: 25px;
     }
     
     /* Подвал */
     footer {
-        background: rgba(0,0,0,0.3);
-        padding: 20px;
-        border-radius: 10px;
-        margin-top: 30px;
+        background: linear-gradient(135deg, #f3e5f5, #fff9f0);
+        padding: 30px;
+        border-radius: 15px;
+        margin-top: 40px;
+        border-top: 3px solid #8E24AA;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -300,7 +309,7 @@ col1, col2 = st.columns(2)
 with col1:
     st.markdown("""
         <div class="comparison-card">
-            <h3 class="free-title">🎁 Бесплатный практикум</h3>
+            <h3 class="free-title"> Бесплатный практикум</h3>
             <ul>
                 <li>Мини-гайды и первые шаги в ИИ</li>
                 <li>Обзоры нейросетей для визуала и текста</li>
@@ -308,7 +317,7 @@ with col1:
                 <li>Общая информация и база</li>
             </ul>
             <br>
-            <a href="https://t.me/praktikumdlynahinajuchih" class="btn-main btn-yellow" style="font-size: 1em; padding: 10px 20px;" target="_blank">Подписаться бесплатно</a>
+            <a href="https://t.me/praktikumdlynahinajuchih" class="btn-main btn-yellow" style="font-size: 1em; padding: 12px 25px;" target="_blank">Подписаться бесплатно</a>
         </div>
     """, unsafe_allow_html=True)
 
@@ -324,16 +333,16 @@ with col2:
                 <li><b>Новые темы:</b> соцсети, ИИ-агенты</li>
             </ul>
             <br>
-            <a href="https://t.me/+e4CJuDcXMro3ODcy" class="btn-main btn-purple" style="font-size: 1em; padding: 10px 20px;" target="_blank">Вступить в клуб</a>
+            <a href="https://t.me/+e4CJuDcXMro3ODcy" class="btn-main btn-purple" style="font-size: 1em; padding: 12px 25px;" target="_blank">Вступить в клуб</a>
         </div>
     """, unsafe_allow_html=True)
 
 # 5. УСЛОВИЯ
 st.markdown("## 💰 Условия участия в клубе")
 st.markdown("""
-    <div class="card card-purple" style="text-align: center; border: 2px solid #8E24AA;">
-        <h2 style="color: #FDD835; margin-bottom: 10px;">2 000 ₽ / месяц</h2>
-        <ul style="text-align: left; display: inline-block; font-size: 1.05em; line-height: 1.6;">
+    <div class="card card-purple" style="text-align: center; border: 3px solid #8E24AA;">
+        <h2 style="color: #6A1B9A; margin-bottom: 15px; font-size: 2.2em;">2 000 ₽ / месяц</h2>
+        <ul style="text-align: left; display: inline-block; font-size: 1.1em; line-height: 1.8;">
             <li>Оплата раз в месяц (перевод на карту)</li>
             <li><b>Работаем официально</b> (самозанятость, налоги)</li>
             <li>Отмена в любой момент</li>
@@ -349,10 +358,10 @@ st.markdown("""
 st.markdown("---")
 st.markdown("""
     <footer>
-        <div style="text-align: center; color: #e0e0e0; padding: 20px;">
-            <p>Простой ИИ без стресса и сложных терминов.</p>
-            <p><b>Юлия и Наталья</b> </p>
-            <p><a href="https://t.me/praktikumdlynahinajuchih" style="color: #FDD835; text-decoration: none;">Перейти в наш бесплатный Telegram-канал</a></p>
+        <div style="text-align: center; color: #6A1B9A; padding: 20px;">
+            <p style="font-size: 1.1em;">Простой ИИ без стресса и сложных терминов.</p>
+            <p style="font-size: 1.2em; margin: 15px 0;"><b>Юлия и Наталья</b> 💫</p>
+            <p><a href="https://t.me/praktikumdlynahinajuchih" style="color: #FDD835; text-decoration: none; background: #6A1B9A; padding: 8px 20px; border-radius: 20px; display: inline-block; font-weight: bold;">Перейти в наш бесплатный Telegram-канал</a></p>
         </div>
     </footer>
 """, unsafe_allow_html=True)
