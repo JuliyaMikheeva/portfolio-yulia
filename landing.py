@@ -1,374 +1,202 @@
-#!/usr/bin/env python3
-"""
-Landing Page Generator
+<tool_code>
+import streamlit as st
 
-A simple Python script that generates a basic HTML landing page.
-"""
-
-def generate_landing_page():
-    """Generate and save a basic landing page HTML file."""
-    
-    html_content = """<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Добро пожаловать | Landing Page</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
-
-        .nav-links a:hover {
-            opacity: 0.8;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 150px 0 100px;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: white;
-            color: #667eea;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-
-        /* Features Section */
-        .features {
-            padding: 80px 0;
-            background: #f8f9fa;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #333;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .feature-card h3 {
-            margin-bottom: 1rem;
-            color: #667eea;
-        }
-
-        /* About Section */
-        .about {
-            padding: 80px 0;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-text h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: #667eea;
-        }
-
-        .about-image {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            height: 300px;
-            border-radius: 10px;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 80px 0;
-            background: #f8f9fa;
-        }
-
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-
-        .form-group textarea {
-            height: 150px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            width: 100%;
-            transition: opacity 0.3s;
-        }
-
-        .submit-btn:hover {
-            opacity: 0.9;
-        }
-
-        /* Footer */
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
-
-        .social-links {
-            margin-bottom: 1rem;
-        }
-
-        .social-links a {
-            color: white;
-            margin: 0 10px;
-            text-decoration: none;
-            font-size: 1.2rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .nav-links {
-                gap: 1rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">YourBrand</div>
-                <ul class="nav-links">
-                    <li><a href="#home">Главная</a></li>
-                    <li><a href="#features">Преимущества</a></li>
-                    <li><a href="#about">О нас</a></li>
-                    <li><a href="#contact">Контакты</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <h1>Создайте свой идеальный продукт</h1>
-            <p>Мы помогаем бизнесу расти и достигать новых высот</p>
-            <a href="#contact" class="cta-button">Начать сейчас</a>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section id="features" class="features">
-        <div class="container">
-            <h2 class="section-title">Наши преимущества</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🚀</div>
-                    <h3>Быстрый старт</h3>
-                    <p>Запустите ваш проект в кратчайшие сроки с нашей помощью</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💡</div>
-                    <h3>Инновации</h3>
-                    <p>Используем передовые технологии для лучших результатов</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🛡️</div>
-                    <h3>Надежность</h3>
-                    <p>Гарантируем качество и безопасность вашего проекта</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>О нашей компании</h2>
-                    <p>Мы — команда профессионалов, стремящихся помочь вашему бизнесу достичь успеха. Наш опыт и экспертиза позволяют решать самые сложные задачи.</p>
-                    <p>Работаем на рынке уже более 5 лет и успешно завершили сотни проектов для клиентов по всему миру.</p>
-                </div>
-                <div class="about-image"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Свяжитесь с нами</h2>
-            <form class="contact-form">
-                <div class="form-group">
-                    <label for="name">Ваше имя</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Сообщение</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Отправить</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="#">Facebook</a>
-                <a href="#">Twitter</a>
-                <a href="#">Instagram</a>
-                <a href="#">LinkedIn</a>
-            </div>
-            <p>&copy; 2025 YourBrand. Все права защищены.</p>
-        </div>
-    </footer>
-</body>
-</html>
-"""
-
-    with open('landing.html', 'w', encoding='utf-8') as f:
-        f.write(html_content)
-    
-    print("✓ Лендинг успешно создан: landing.html")
-    return 'landing.html'
+st.set_page_config(
+page_title="Нейромастерская НЮансов",
+page_icon="✨",
+layout="wide",
+initial_sidebar_state="collapsed"
+)
+st.markdown("""
+<style>
+.stApp { background-color: #fdfbf7; color: #333333; }
+h1, h2, h3 { color: #4a148c; font-family: 'Georgia', serif; }
+.hero {
+text-align: center; padding: 50px 20px;
+background: linear-gradient(135deg, #f3e5f5 0%, #fff9c4 100%);
+border-radius: 20px; margin-bottom: 40px;
+box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+.hero h1 { font-size: 2.8em; margin-bottom: 15px; color: #311b92; }
+.hero p { font-size: 1.3em; color: #555; margin-bottom: 30px; }
+.card {
+background: white; padding: 30px; border-radius: 15px;
+box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 20px;
+border-left: 5px solid #fbc02d;
+}
+.card-purple { border-left: 5px solid #7b1fa2; }
+.btn-primary {
+background-color: #7b1fa2; color: white !important;
+padding: 15px 30px; border-radius: 30px; text-decoration: none;
+font-weight: bold; font-size: 1.1em; display: inline-block;
+margin: 10px; transition: transform 0.2s;
+}
+.btn-secondary {
+background-color: #fbc02d; color: #333 !important;
+padding: 15px 30px; border-radius: 30px; text-decoration: none;
+font-weight: bold; font-size: 1.1em; display: inline-block;
+margin: 10px; transition: transform 0.2s;
+}
+.btn-primary:hover, .btn-secondary:hover { transform: scale(1.05); }
+.comparison-table {
+width: 100%; border-collapse: collapse; margin: 20px 0;
+background: white; border-radius: 10px; overflow: hidden;
+box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+.comparison-table th, .comparison-table td {
+border: 1px solid #e0e0e0; padding: 15px; text-align: left;
+}
+.comparison-table th { background-color: #f3e5f5; color: #4a148c; font-size: 1.1em; }
+.review-box {
+background: #f3e5f5; padding: 20px; border-radius: 15px;
+border-left: 5px solid #7b1fa2; margin: 15px 0; font-style: italic;
+}
+.highlight { background-color: #fff9c4; padding: 2px 6px; border-radius: 4px; font-weight: bold; }
+</style>
+""", unsafe_allow_html=True)
+st.markdown("""
+<div class="hero">
+<h1>Нейросети — понятный помощник, а не головная боль</h1>
+<p>Бесплатный практикум для первых шагов + закрытый клуб «Нейромастерская НЮансов» для глубокого погружения.</p>
 
 
-if __name__ == '__main__':
-    generate_landing_page()
+<a href="https://t.me/praktikumdlynahinajuchih" class="btn-secondary" target="_blank">🎁 Начать с бесплатного практикума</a>
+<a href="https://t.me/+e4CJuDcXMro3ODcy" class="btn-primary" target="_blank">💫 Посмотреть, что внутри клуба</a>
+</div>
+""", unsafe_allow_html=True)
+st.markdown("## 👩‍💻 Эксперты Юлия и Наталья")
+st.markdown("""
+<div class="card">
+<p>Наша задача простая: помочь внедрить ИИ в повседневные дела и довести каждую идею до результата — «рука об руку».</p>
+<p>Мы — действующие эксперты по нейросетям и кураторы крупной онлайн-школы. За нашими плечами более <span class="highlight">1000 учеников</span>, которым мы уже помогли сделать первые шаги, разобраться в сложных инструментах и побороть страх «у меня не получится».</p>
+</div>
+""", unsafe_allow_html=True)
+col1, col2 = st.columns(2)
+with col1:
+st.markdown("""
+<div class="card">
+<h3>🛠 Юлия Михеева</h3>
+<p><b>Куратор-практик по нейросетям и цифровым инструментам</b></p>
+<p>Суперсила — превращать сложное в простое и доводить каждую задачу до конца.</p>
+<ul>
+<li><b>Техническая экспертиза:</b> Создает чат-ботов, ИИ-агентов, пишет код, автоматизирует таблицы.</li>
+<li><b>Опыт в поддержке:</b> 10+ лет в Ozon, Мегамаркет, Роснефть. Знает "кухню" сервисов изнутри.</li>
+<li><b>Автор 5 детских книг на Литрес</b> (текст и иллюстрации с помощью ИИ).</li>
+<li><b>Финансист и специалист по госзакупкам.</b></li>
+<li><b>Подход:</b> «Рука об руку» — рядом, пока не получится. Без заумных терминов.</li>
+</ul>
+</div>
+""", unsafe_allow_html=True)
+with col2:
+st.markdown("""
+<div class="card card-purple">
+<h3>🎨 Наталья Урванцева</h3>
+<p><b>Наставник по практическому применению ИИ</b></p>
+<p>Суперсила — подбирать инструмент под задачу человека, а не человека под инструмент.</p>
+<ul>
+<li><b>Высшее юридическое образование</b> — системное мышление и надежность.</li>
+<li><b>Сооснователь «Нейромастерской»</b> и автор проекта «Пиксельные сказки».</li>
+<li><b>Широкий спектр компетенций:</b> AI-видео, инфографика, иллюстрации, презентации, сценарии.</li>
+<li><b>Практик, а не теоретик:</b> метод работы строится на реальной задаче. Сначала результат, потом понимание.</li>
+<li><b>Философия:</b> «Не учу пользоваться кнопками — учу думать и применять технологии осознанно».</li>
+</ul>
+</div>
+""", unsafe_allow_html=True)
+st.markdown("""
+<div style="text-align: center; margin-top: 20px; font-size: 1.1em; color: #555;">
+<i>Наша синергия: Юлия отвечает за техническую часть и простоту. Наталья — за визуал, контент и творческую упаковку. Вместе мы даем полный цикл: от идеи до готового продукта.</i>
+</div>
+""", unsafe_allow_html=True)
+st.markdown("## ⚖️ Бесплатный практикум vs Платный клуб")
+st.markdown("""
+<table class="comparison-table">
+<tr>
+<th>🎁 Бесплатный практикум</th>
+<th>💫 Клуб «Нейромастерская НЮансов»</th>
+</tr>
+<tr>
+<td>Мини-гайды и первые шаги в ИИ</td>
+<td>Глубокое погружение и готовые рабочие связки</td>
+</tr>
+<tr>
+<td>Обзоры нейросетей для визуала и текста</td>
+<td>Библиотека записей уроков, промптов и сервисов</td>
+</tr>
+<tr>
+<td>Самостоятельное изучение материалов</td>
+<td><b>Живые эфиры</b> с разборами почти каждые выходные</td>
+</tr>
+<tr>
+<td>Общая информация и база</td>
+<td><b>Персональная обратная связь:</b> задавайте вопросы в общую автоматизированную таблицу, и мы гарантированно разберем их на эфире</td>
+</tr>
+<tr>
+<td>База</td>
+<td><b>Новые темы:</b> детальные разборы оформления соцсетей, создание ИИ-агентов и многое другое</td>
+</tr>
+</table>
+""", unsafe_allow_html=True)
+st.markdown("## 🛠️ С чем мы работаем?")
+st.markdown("""
+<div class="card">
+<p>Главный принцип — давать инструменты, которые позволяют получить результат здесь и сейчас, без технических барьеров.</p>
+<ul>
+<li>🇷🇺 <b>Российские нейросети:</b> В планах добавить разборы Алисы, GigaChat и Шедеврум, чтобы понимать возможности и ограничения отечественных сервисов. Следите за обновлениями!</li>
+<li>⚡ <b>Доступные и мощные инструменты:</b> Учим работать с DeepSeek (Дипсик), Qwen (Квен) и другими сервисами, которые дают отличный результат.</li>
+<li>🌍 <b>Зарубежные гиганты:</b> Разбираем возможности ChatGPT, Gemini, Flow и Reve. Честно предупреждаем, что для них может понадобиться VPN, и показываем, как использовать их грамотно.</li>
+</ul>
+<p><i>Сначала — результат и понимание, потом — нюансы!</i></p>
+</div>
+""", unsafe_allow_html=True)
+st.markdown("## 🎯 Этот клуб для тебя, если ты:")
+st.markdown("""
+<div class="card">
+<ul style="line-height: 1.8; font-size: 1.05em;">
+<li>✅ Мама в декрете, которая хочет создавать красивый контент для семьи или начать подрабатывать.</li>
+<li>✅ Начинающий или действующий фрилансер, желающий ускорить работу и брать больше заказов.</li>
+<li>✅ Владелец малого бизнеса или мастер (хендмейд, кондитер), которому нужна красивая упаковка без сложных программ.</li>
+<li>✅ Офисный сотрудник или ассистент, мечтающий автоматизировать отчеты и письма, чтобы уходить с работы вовремя.</li>
+<li>✅ Тот, кто пробовал бесплатные уроки, но запутался в терминах и хочет получить четкую структуру и поддержку.</li>
+</ul>
+</div>
+""", unsafe_allow_html=True)
+st.markdown("## 💬 Результаты учеников")
+st.markdown("""
+<div class="review-box">
+<p>📸 <i>Здесь будет скриншот отзыва №1.</i></p>
+</div>
+<div class="review-box">
+<p>📸 <i>Здесь будет скриншот отзыва №2 или примера работы ученика.</i></p>
+</div>
+<div class="review-box">
+<p>📸 <i>Здесь будет скриншот изнутри клуба: фрагмент урока или чата.</i></p>
+</div>
+""", unsafe_allow_html=True)
+st.markdown("## 💰 Условия участия в клубе")
+st.markdown("""
+<div class="card card-purple" style="text-align: center; border: 2px solid #7b1fa2;">
+<h2 style="color: #7b1fa2; margin-bottom: 10px;">2 000 ₽ / месяц</h2>
+<p style="font-size: 1.1em;">Прозрачные условия без скрытых платежей:</p>
+<ul style="text-align: left; display: inline-block; font-size: 1.05em; line-height: 1.6;">
+<li>Оплата производится раз в месяц удобным способом (перевод на карту).</li>
+<li><b>Мы работаем официально.</b> За каждый чек отчитываемся в налоговую и платим налоги (статус самозанятого).</li>
+<li>Отменить подписку можно в любой момент, просто написав нам. Доступ к клубу и архивным материалам сохраняется до конца оплаченного периода, после чего закрывается.</li>
+</ul>
+
+
+
+<a href="https://t.me/a_yulija19790111" class="btn-primary" target="_blank">💫 Написать Юлии: "Хочу в клуб"</a>
+
+
+<a href="https://t.me/Natalia_U" class="btn-secondary" target="_blank" style="font-size: 0.9em; padding: 10px 20px;">или написать Наталье</a>
+</div>
+""", unsafe_allow_html=True)
+st.markdown("---")
+st.markdown("""
+<div style="text-align: center; color: #777; padding: 20px;">
+<p>Простой ИИ без стресса и сложных терминов.</p>
+<p><b>Юлия и Наталья</b> 💫</p>
+<p><a href="https://t.me/praktikumdlynahinajuchih" style="color: #7b1fa2; text-decoration: none;">Перейти в наш бесплатный Telegram-канал</a></p>
+</div>
+""", unsafe_allow_html=True)
+</tool_code>
