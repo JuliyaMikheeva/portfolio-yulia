@@ -29,11 +29,11 @@ st.markdown("""
         text-align: center; padding: 20px;
     }
     .expert-photo {
-        width: 200px; height: 200px;
-        border-radius: 50%;
-        object-fit: cover;
+        width: 250px; height: auto;
+        border-radius: 15px;
         margin-bottom: 15px;
         border: 4px solid #fbc02d;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
     .btn-primary {
         background-color: #7b1fa2; color: white !important;
@@ -70,6 +70,12 @@ st.markdown("""
         border-left: 5px solid #7b1fa2; margin: 15px 0; font-style: italic;
     }
     .highlight { background-color: #fff9c4; padding: 2px 6px; border-radius: 4px; font-weight: bold; }
+    .telegram-link {
+        display: inline-block; margin: 5px; padding: 8px 15px;
+        background: #0088cc; color: white; border-radius: 20px;
+        text-decoration: none; font-size: 0.9em;
+    }
+    .telegram-link:hover { background: #0077b3; }
     </style>
 """, unsafe_allow_html=True)
 
@@ -79,11 +85,11 @@ st.markdown("""
         <p>Бесплатный практикум для первых шагов + закрытый клуб «Нейромастерская НЮансов» для глубокого погружения.</p>
         <br>
         <a href="https://t.me/praktikumdlynahinajuchih" class="btn-secondary" target="_blank">🎁 Начать с бесплатного практикума</a>
-        <a href="https://t.me/+e4CJuDcXMro3ODcy" class="btn-primary" target="_blank"> Посмотреть, что внутри клуба</a>
+        <a href="https://t.me/+e4CJuDcXMro3ODcy" class="btn-primary" target="_blank">💫 Посмотреть, что внутри клуба</a>
     </div>
 """, unsafe_allow_html=True)
 
-st.markdown("## 👩‍ Эксперты Юлия и Наталья")
+st.markdown("## 👩💻 Эксперты Юлия и Наталья")
 st.markdown("""
     <div class="card">
         <p>Наша задача простая: помочь внедрить ИИ в повседневные дела и довести каждую идею до результата — «рука об руку».</p>
@@ -96,7 +102,7 @@ col1, col2 = st.columns(2)
 with col1:
     st.markdown("""
         <div class="card expert-card">
-            <img src="https://via.placeholder.com/200" alt="Юлия Михеева" class="expert-photo">
+            <img src="team-photo.jpg" alt="Юлия и Наталья" class="expert-photo">
             <h3>🛠 Юлия Михеева</h3>
             <p><b>Куратор-практик по нейросетям и цифровым инструментам</b></p>
             <p>Суперсила — превращать сложное в простое и доводить каждую задачу до конца.</p>
@@ -107,13 +113,14 @@ with col1:
                 <li><b>Финансист и специалист по госзакупкам.</b></li>
                 <li><b>Подход:</b> «Рука об руку» — рядом, пока не получится.</li>
             </ul>
+            <a href="https://t.me/a_yulija19790111" class="telegram-link" target="_blank">Написать Юлии в Telegram</a>
         </div>
     """, unsafe_allow_html=True)
 
 with col2:
     st.markdown("""
         <div class="card expert-card card-purple">
-            <img src="https://via.placeholder.com/200" alt="Наталья Урванцева" class="expert-photo">
+            <img src="team-photo.jpg" alt="Юлия и Наталья" class="expert-photo">
             <h3>🎨 Наталья Урванцева</h3>
             <p><b>Наставник по практическому применению ИИ</b></p>
             <p>Суперсила — подбирать инструмент под задачу человека, а не человека под инструмент.</p>
@@ -124,6 +131,7 @@ with col2:
                 <li><b>Практик, а не теоретик:</b> метод работы строится на реальной задаче.</li>
                 <li><b>Философия:</b> «Не учу пользоваться кнопками — учу думать осознанно».</li>
             </ul>
+            <a href="https://t.me/Natalia_U" class="telegram-link" target="_blank" style="background: #0088cc;">Написать Наталье в Telegram</a>
         </div>
     """, unsafe_allow_html=True)
 
@@ -140,7 +148,7 @@ col1, col2 = st.columns(2)
 with col1:
     st.markdown("""
         <div class="comparison-card">
-            <h3 class="free-title"> Бесплатный практикум</h3>
+            <h3 class="free-title">🎁 Бесплатный практикум</h3>
             <ul>
                 <li>Мини-гайды и первые шаги в ИИ</li>
                 <li>Обзоры нейросетей для визуала и текста</li>
