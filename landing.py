@@ -1,4 +1,5 @@
 import streamlit as st
+from pathlib import Path
 
 st.set_page_config(
     page_title="Нейромастерская НЮансов", 
@@ -7,9 +8,12 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
+# Пути к фото
+yulia_photo = "yulia.jpg"
+natalia_photo = "natalia.jpg"
+
 st.markdown("""
     <style>
-    /* СВЕТЛАЯ ТЕМА С ЯРКИМИ АКЦЕНТАМИ */
     .stApp { 
         background: linear-gradient(135deg, #fff9f0 0%, #fff 50%, #f3e5f5 100%);
         color: #333333;
@@ -19,7 +23,6 @@ st.markdown("""
         font-family: 'Georgia', serif; 
     }
     
-    /* Главный экран */
     .hero {
         text-align: center; 
         padding: 60px 30px;
@@ -41,7 +44,6 @@ st.markdown("""
         text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
     }
     
-    /* Крупные цветные надписи-ссылки */
     .big-link-container {
         display: flex;
         justify-content: center;
@@ -74,7 +76,6 @@ st.markdown("""
         border: 3px solid #AB47BC;
     }
     
-    /* Карточки */
     .card {
         background: white;
         padding: 35px; 
@@ -92,23 +93,6 @@ st.markdown("""
         padding: 30px; 
     }
     
-    /* Фото экспертов */
-    .expert-photo {
-        width: 220px;
-        height: 220px;
-        border-radius: 50%;
-        object-fit: cover;
-        margin: 0 auto 25px;
-        display: block;
-        border: 5px solid #FDD835;
-        box-shadow: 0 6px 25px rgba(253, 216, 53, 0.4);
-    }
-    .expert-photo-natalia {
-        border-color: #8E24AA;
-        box-shadow: 0 6px 25px rgba(142, 36, 170, 0.4);
-    }
-    
-    /* Кнопки контактов */
     .btn-contact {
         display: block; 
         width: 100%; 
@@ -131,7 +115,6 @@ st.markdown("""
         transform: translateY(-2px);
     }
 
-    /* Пульсирующие кнопки */
     @keyframes pulse-purple {
         0% { box-shadow: 0 0 0 0 rgba(142, 36, 170, 0.7); }
         70% { box-shadow: 0 0 0 20px rgba(142, 36, 170, 0); }
@@ -170,7 +153,6 @@ st.markdown("""
         box-shadow: 0 8px 25px rgba(0,0,0,0.3);
     }
 
-    /* Карточки сравнения */
     .comparison-card {
         background: white;
         padding: 30px; 
@@ -232,7 +214,6 @@ st.markdown("""
         margin-top: 25px;
     }
     
-    /* Подвал */
     footer {
         background: linear-gradient(135deg, #f3e5f5, #fff9f0);
         padding: 30px;
@@ -264,13 +245,18 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
-# 3. КАРТОЧКИ ЭКСПЕРТОВ С ФОТО
+# 3. КАРТОЧКИ ЭКСПЕРТОВ С ФОТО (используем st.image)
 col1, col2 = st.columns(2)
 
 with col1:
+    # Показываем фото Юлии
+    try:
+        st.image(yulia_photo, caption="Юлия Михеева", width=220)
+    except:
+        st.info("📸 Фото Юлии")
+    
     st.markdown("""
         <div class="card expert-card">
-            <img src="yulia.jpg" alt="Юлия Михеева" class="expert-photo">
             <h3>🛠 Юлия Михеева</h3>
             <p><b>Куратор-практик по нейросетям и цифровым инструментам</b></p>
             <ul style="text-align: left; line-height: 1.8;">
@@ -285,9 +271,14 @@ with col1:
     """, unsafe_allow_html=True)
 
 with col2:
+    # Показываем фото Натальи
+    try:
+        st.image(natalia_photo, caption="Наталья Урванцева", width=220)
+    except:
+        st.info("📸 Фото Натальи")
+    
     st.markdown("""
         <div class="card expert-card card-purple">
-            <img src="natalia.jpg" alt="Наталья Урванцева" class="expert-photo expert-photo-natalia">
             <h3>🎨 Наталья Урванцева</h3>
             <p><b>Наставник по практическому применению ИИ</b></p>
             <ul style="text-align: left; line-height: 1.8;">
@@ -309,7 +300,7 @@ col1, col2 = st.columns(2)
 with col1:
     st.markdown("""
         <div class="comparison-card">
-            <h3 class="free-title"> Бесплатный практикум</h3>
+            <h3 class="free-title">🎁 Бесплатный практикум</h3>
             <ul>
                 <li>Мини-гайды и первые шаги в ИИ</li>
                 <li>Обзоры нейросетей для визуала и текста</li>
@@ -348,7 +339,7 @@ st.markdown("""
             <li>Отмена в любой момент</li>
         </ul>
         <div class="buttons-row">
-            <a href="https://t.me/a_yulija19790111" class="btn-main btn-purple" target="_blank"> Написать Юлии</a>
+            <a href="https://t.me/a_yulija19790111" class="btn-main btn-purple" target="_blank">📩 Написать Юлии</a>
             <a href="https://t.me/Natalia_U" class="btn-main btn-purple" target="_blank">💫 Написать Наталье</a>
         </div>
     </div>
