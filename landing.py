@@ -7,24 +7,41 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-photo_path = "team-photo.jpg"
-
 st.markdown("""
     <style>
-    .stApp { background-color: #fdfbf7; color: #333333; }
-    h1, h2, h3 { color: #4a148c; font-family: 'Georgia', serif; }
+    /* ТЁМНАЯ ТЕМА */
+    .stApp { 
+        background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
+        color: #ffffff;
+    }
+    h1, h2, h3 { 
+        color: #e0e0e0; 
+        font-family: 'Georgia', serif; 
+    }
     
     /* Главный экран */
     .hero {
-        text-align: center; padding: 50px 20px;
-        background: linear-gradient(135deg, #f3e5f5 0%, #fff9c4 100%);
-        border-radius: 20px; margin-bottom: 40px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        text-align: center; 
+        padding: 50px 20px;
+        background: linear-gradient(135deg, #6A1B9A 0%, #8E24AA 50%, #FDD835 100%);
+        border-radius: 20px; 
+        margin-bottom: 40px;
+        box-shadow: 0 8px 25px rgba(106, 27, 154, 0.4);
     }
-    .hero h1 { font-size: 2.8em; margin-bottom: 15px; color: #311b92; }
-    .hero p { font-size: 1.3em; color: #555; margin-bottom: 30px; }
+    .hero h1 { 
+        font-size: 2.8em; 
+        margin-bottom: 15px; 
+        color: #ffffff;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    .hero p { 
+        font-size: 1.3em; 
+        color: #fff9c4;
+        margin-bottom: 30px;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
     
-    /* Крупные цветные надписи-ссылки вместо кнопок */
+    /* Крупные цветные надписи-ссылки */
     .big-link-container {
         display: flex;
         justify-content: center;
@@ -36,92 +53,183 @@ st.markdown("""
         font-size: 1.5em;
         font-weight: bold;
         text-decoration: none;
-        padding: 10px 20px;
-        border-radius: 10px;
-        transition: transform 0.2s;
+        padding: 15px 30px;
+        border-radius: 50px;
+        transition: all 0.3s;
         display: inline-block;
+        background: rgba(255,255,255,0.15);
+        backdrop-filter: blur(10px);
     }
-    .big-link:hover { transform: scale(1.05); }
+    .big-link:hover { 
+        transform: scale(1.05);
+        background: rgba(255,255,255,0.25);
+    }
     .link-yellow {
-        color: #f57f17;
-        background: rgba(251, 192, 45, 0.2);
-        border: 2px solid #fbc02d;
+        color: #1a1a2e;
+        background: #FDD835;
+        border: 2px solid #FDD835;
     }
     .link-purple {
-        color: #7b1fa2;
-        background: rgba(123, 31, 162, 0.1);
-        border: 2px solid #7b1fa2;
+        color: #ffffff;
+        background: #6A1B9A;
+        border: 2px solid #8E24AA;
     }
     
     /* Карточки */
     .card {
-        background: white; padding: 30px; border-radius: 15px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 20px;
-        border-left: 5px solid #fbc02d;
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(10px);
+        padding: 30px; 
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        margin-bottom: 20px;
+        border-left: 5px solid #FDD835;
+        color: #e0e0e0;
     }
-    .card-purple { border-left: 5px solid #7b1fa2; }
-    .expert-card { text-align: center; padding: 20px; }
+    .card-purple { 
+        border-left: 5px solid #8E24AA; 
+    }
+    .expert-card { 
+        text-align: center; 
+        padding: 20px; 
+    }
+    
+    /* Фото экспертов */
+    .expert-photo {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 0 auto 20px;
+        display: block;
+        border: 4px solid #FDD835;
+        box-shadow: 0 4px 20px rgba(253, 216, 53, 0.4);
+    }
+    .expert-photo-natalia {
+        border-color: #8E24AA;
+        box-shadow: 0 4px 20px rgba(142, 36, 170, 0.4);
+    }
     
     /* Кнопки контактов */
     .btn-contact {
-        display: block; width: 100%; padding: 15px; margin-top: 15px;
-        background-color: #0088cc; color: white !important;
-        border-radius: 12px; text-decoration: none;
-        font-size: 1.1em; font-weight: bold; text-align: center;
+        display: block; 
+        width: 100%; 
+        padding: 15px; 
+        margin-top: 15px;
+        background: linear-gradient(135deg, #6A1B9A, #8E24AA);
+        color: white !important;
+        border-radius: 12px; 
+        text-decoration: none;
+        font-size: 1.1em; 
+        font-weight: bold; 
+        text-align: center;
         box-sizing: border-box;
+        box-shadow: 0 4px 15px rgba(106, 27, 154, 0.4);
     }
-    .btn-contact:hover { background-color: #0077b3; }
+    .btn-contact:hover { 
+        background: linear-gradient(135deg, #8E24AA, #6A1B9A);
+        box-shadow: 0 6px 20px rgba(106, 27, 154, 0.6);
+    }
 
-    /* Пульсирующие кнопки для сравнения и условий */
+    /* Пульсирующие кнопки */
     @keyframes pulse-purple {
-        0% { box-shadow: 0 0 0 0 rgba(123, 31, 162, 0.7); }
-        70% { box-shadow: 0 0 0 15px rgba(123, 31, 162, 0); }
-        100% { box-shadow: 0 0 0 0 rgba(123, 31, 162, 0); }
+        0% { box-shadow: 0 0 0 0 rgba(142, 36, 170, 0.7); }
+        70% { box-shadow: 0 0 0 15px rgba(142, 36, 170, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(142, 36, 170, 0); }
     }
     @keyframes pulse-yellow {
-        0% { box-shadow: 0 0 0 0 rgba(251, 192, 45, 0.7); }
-        70% { box-shadow: 0 0 0 15px rgba(251, 192, 45, 0); }
-        100% { box-shadow: 0 0 0 0 rgba(251, 192, 45, 0); }
+        0% { box-shadow: 0 0 0 0 rgba(253, 216, 53, 0.7); }
+        70% { box-shadow: 0 0 0 15px rgba(253, 216, 53, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(253, 216, 53, 0); }
     }
     
     .btn-main {
-        padding: 15px 30px; border-radius: 50px; text-decoration: none;
-        font-weight: bold; font-size: 1.1em; display: inline-block;
-        margin: 10px; transition: transform 0.2s; border: none;
+        padding: 15px 30px; 
+        border-radius: 50px; 
+        text-decoration: none;
+        font-weight: bold; 
+        font-size: 1.1em; 
+        display: inline-block;
+        margin: 10px; 
+        transition: all 0.3s; 
+        border: none;
     }
     .btn-purple {
-        background-color: #7b1fa2; color: white !important;
+        background: linear-gradient(135deg, #6A1B9A, #8E24AA);
+        color: white !important;
         animation: pulse-purple 2s infinite;
     }
     .btn-yellow {
-        background-color: #fbc02d; color: #333 !important;
+        background: linear-gradient(135deg, #FDD835, #FBC02D);
+        color: #1a1a2e !important;
         animation: pulse-yellow 2s infinite;
     }
-    .btn-main:hover { transform: scale(1.05); }
+    .btn-main:hover { 
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(142, 36, 170, 0.5);
+    }
 
     /* Карточки сравнения */
     .comparison-card {
-        background: white; padding: 25px; border-radius: 15px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 20px;
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(10px);
+        padding: 25px; 
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        margin-bottom: 20px;
         text-align: center;
+        border: 1px solid rgba(255,255,255,0.1);
     }
     .comparison-card h3 {
-        margin-bottom: 20px; padding: 15px; border-radius: 10px; color: white;
+        margin-bottom: 20px; 
+        padding: 15px; 
+        border-radius: 10px; 
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
     }
-    .free-title { background: linear-gradient(135deg, #66bb6a, #43a047); }
-    .club-title { background: linear-gradient(135deg, #7b1fa2, #5e35b1); }
-    .comparison-card ul { list-style: none; padding: 0; line-height: 2; text-align: left; }
-    .comparison-card li:before { content: "✓ "; color: #43a047; font-weight: bold; margin-right: 8px; }
+    .free-title { 
+        background: linear-gradient(135deg, #43A047, #66BB6A); 
+    }
+    .club-title { 
+        background: linear-gradient(135deg, #6A1B9A, #8E24AA); 
+    }
+    .comparison-card ul { 
+        list-style: none; 
+        padding: 0; 
+        line-height: 2; 
+        text-align: left;
+        color: #e0e0e0;
+    }
+    .comparison-card li:before { 
+        content: "✓ "; 
+        color: #66BB6A; 
+        font-weight: bold; 
+        margin-right: 8px; 
+    }
     
-    .highlight { background-color: #fff9c4; padding: 2px 6px; border-radius: 4px; font-weight: bold; }
+    .highlight { 
+        background: linear-gradient(135deg, #FDD835, #FBC02D);
+        color: #1a1a2e;
+        padding: 3px 8px; 
+        border-radius: 6px; 
+        font-weight: bold;
+        box-shadow: 0 2px 8px rgba(253, 216, 53, 0.3);
+    }
     
-    /* Две кнопки рядом */
     .buttons-row {
         display: flex;
         justify-content: center;
         gap: 20px;
         flex-wrap: wrap;
         margin-top: 20px;
+    }
+    
+    /* Подвал */
+    footer {
+        background: rgba(0,0,0,0.3);
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 30px;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -139,7 +247,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # 2. О НАС
-st.markdown("## 👩💻 Эксперты Юлия и Наталья")
+st.markdown("## 👩‍💻 Эксперты Юлия и Наталья")
 st.markdown("""
     <div class="card">
         <p>Наша задача простая: помочь внедрить ИИ в повседневные дела и довести каждую идею до результата — «рука об руку».</p>
@@ -147,18 +255,14 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
-# ФОТО — увеличено и сдвинуто вправо
-col_left, col_center, col_right = st.columns([0.5, 2.5, 1])
-with col_center:
-    st.image(photo_path, caption="Юлия и Наталья — основатели Нейромастерской", width=550)
-
-# 3. КАРТОЧКИ ЭКСПЕРТОВ
+# 3. КАРТОЧКИ ЭКСПЕРТОВ С ФОТО
 col1, col2 = st.columns(2)
 
 with col1:
     st.markdown("""
         <div class="card expert-card">
-            <h3> Юлия Михеева</h3>
+            <img src="yulia.jpg" alt="Юлия Михеева" class="expert-photo">
+            <h3>🛠 Юлия Михеева</h3>
             <p><b>Куратор-практик по нейросетям и цифровым инструментам</b></p>
             <ul style="text-align: left; line-height: 1.8;">
                 <li><b>Техническая экспертиза:</b> Создает чат-ботов, ИИ-агентов, пишет код.</li>
@@ -174,7 +278,8 @@ with col1:
 with col2:
     st.markdown("""
         <div class="card expert-card card-purple">
-            <h3> Наталья Урванцева</h3>
+            <img src="natalia.jpg" alt="Наталья Урванцева" class="expert-photo expert-photo-natalia">
+            <h3>🎨 Наталья Урванцева</h3>
             <p><b>Наставник по практическому применению ИИ</b></p>
             <ul style="text-align: left; line-height: 1.8;">
                 <li><b>Высшее юридическое образование</b> — системное мышление.</li>
@@ -223,11 +328,11 @@ with col2:
         </div>
     """, unsafe_allow_html=True)
 
-# 5. УСЛОВИЯ — ДВЕ КНОПКИ
+# 5. УСЛОВИЯ
 st.markdown("## 💰 Условия участия в клубе")
 st.markdown("""
-    <div class="card card-purple" style="text-align: center; border: 2px solid #7b1fa2;">
-        <h2 style="color: #7b1fa2; margin-bottom: 10px;">2 000 ₽ / месяц</h2>
+    <div class="card card-purple" style="text-align: center; border: 2px solid #8E24AA;">
+        <h2 style="color: #FDD835; margin-bottom: 10px;">2 000 ₽ / месяц</h2>
         <ul style="text-align: left; display: inline-block; font-size: 1.05em; line-height: 1.6;">
             <li>Оплата раз в месяц (перевод на карту)</li>
             <li><b>Работаем официально</b> (самозанятость, налоги)</li>
@@ -243,9 +348,11 @@ st.markdown("""
 # 6. ПОДВАЛ
 st.markdown("---")
 st.markdown("""
-    <div style="text-align: center; color: #777; padding: 20px;">
-        <p>Простой ИИ без стресса и сложных терминов.</p>
-        <p><b>Юлия и Наталья</b> 💫</p>
-        <p><a href="https://t.me/praktikumdlynahinajuchih" style="color: #7b1fa2; text-decoration: none;">Перейти в наш бесплатный Telegram-канал</a></p>
-    </div>
+    <footer>
+        <div style="text-align: center; color: #e0e0e0; padding: 20px;">
+            <p>Простой ИИ без стресса и сложных терминов.</p>
+            <p><b>Юлия и Наталья</b> </p>
+            <p><a href="https://t.me/praktikumdlynahinajuchih" style="color: #FDD835; text-decoration: none;">Перейти в наш бесплатный Telegram-канал</a></p>
+        </div>
+    </footer>
 """, unsafe_allow_html=True)
