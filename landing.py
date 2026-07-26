@@ -24,6 +24,35 @@ st.markdown("""
     .hero h1 { font-size: 2.8em; margin-bottom: 15px; color: #311b92; }
     .hero p { font-size: 1.3em; color: #555; margin-bottom: 30px; }
     
+    /* Крупные цветные надписи-ссылки вместо кнопок */
+    .big-link-container {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+    .big-link {
+        font-size: 1.5em;
+        font-weight: bold;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        transition: transform 0.2s;
+        display: inline-block;
+    }
+    .big-link:hover { transform: scale(1.05); }
+    .link-yellow {
+        color: #f57f17;
+        background: rgba(251, 192, 45, 0.2);
+        border: 2px solid #fbc02d;
+    }
+    .link-purple {
+        color: #7b1fa2;
+        background: rgba(123, 31, 162, 0.1);
+        border: 2px solid #7b1fa2;
+    }
+    
     /* Карточки */
     .card {
         background: white; padding: 30px; border-radius: 15px;
@@ -33,7 +62,17 @@ st.markdown("""
     .card-purple { border-left: 5px solid #7b1fa2; }
     .expert-card { text-align: center; padding: 20px; }
     
-    /* ПУЛЬСИРУЮЩИЕ КНОПКИ */
+    /* Кнопки контактов */
+    .btn-contact {
+        display: block; width: 100%; padding: 15px; margin-top: 15px;
+        background-color: #0088cc; color: white !important;
+        border-radius: 12px; text-decoration: none;
+        font-size: 1.1em; font-weight: bold; text-align: center;
+        box-sizing: border-box;
+    }
+    .btn-contact:hover { background-color: #0077b3; }
+
+    /* Пульсирующие кнопки для сравнения и условий */
     @keyframes pulse-purple {
         0% { box-shadow: 0 0 0 0 rgba(123, 31, 162, 0.7); }
         70% { box-shadow: 0 0 0 15px rgba(123, 31, 162, 0); }
@@ -46,8 +85,8 @@ st.markdown("""
     }
     
     .btn-main {
-        padding: 18px 35px; border-radius: 50px; text-decoration: none;
-        font-weight: bold; font-size: 1.2em; display: inline-block;
+        padding: 15px 30px; border-radius: 50px; text-decoration: none;
+        font-weight: bold; font-size: 1.1em; display: inline-block;
         margin: 10px; transition: transform 0.2s; border: none;
     }
     .btn-purple {
@@ -59,16 +98,6 @@ st.markdown("""
         animation: pulse-yellow 2s infinite;
     }
     .btn-main:hover { transform: scale(1.05); }
-
-    /* Кнопки контактов */
-    .btn-contact {
-        display: block; width: 100%; padding: 15px; margin-top: 15px;
-        background-color: #0088cc; color: white !important;
-        border-radius: 12px; text-decoration: none;
-        font-size: 1.1em; font-weight: bold; text-align: center;
-        box-sizing: border-box;
-    }
-    .btn-contact:hover { background-color: #0077b3; }
 
     /* Карточки сравнения */
     .comparison-card {
@@ -85,6 +114,15 @@ st.markdown("""
     .comparison-card li:before { content: "✓ "; color: #43a047; font-weight: bold; margin-right: 8px; }
     
     .highlight { background-color: #fff9c4; padding: 2px 6px; border-radius: 4px; font-weight: bold; }
+    
+    /* Две кнопки рядом */
+    .buttons-row {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
     </style>
 """, unsafe_allow_html=True)
 
@@ -93,14 +131,15 @@ st.markdown("""
     <div class="hero">
         <h1>Нейросети — понятный помощник, а не головная боль</h1>
         <p>Бесплатный практикум для первых шагов + закрытый клуб «Нейромастерская НЮансов» для глубокого погружения.</p>
-        <br>
-        <a href="https://t.me/praktikumdlynahinajuchih" class="btn-main btn-yellow" target="_blank">🎁 Начать с бесплатного практикума</a>
-        <a href="https://t.me/+e4CJuDcXMro3ODcy" class="btn-main btn-purple" target="_blank"> Посмотреть, что внутри клуба</a>
+        <div class="big-link-container">
+            <a href="https://t.me/praktikumdlynahinajuchih" class="big-link link-yellow" target="_blank">🎁 Начать с бесплатного практикума</a>
+            <a href="https://t.me/+e4CJuDcXMro3ODcy" class="big-link link-purple" target="_blank">💫 Посмотреть, что внутри клуба</a>
+        </div>
     </div>
 """, unsafe_allow_html=True)
 
 # 2. О НАС
-st.markdown("## 👩‍💻 Эксперты Юлия и Наталья")
+st.markdown("## 👩💻 Эксперты Юлия и Наталья")
 st.markdown("""
     <div class="card">
         <p>Наша задача простая: помочь внедрить ИИ в повседневные дела и довести каждую идею до результата — «рука об руку».</p>
@@ -108,10 +147,10 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
-# ФОТО ПО ЦЕНТРУ (используем колонки для центрирования)
-col_left, col_center, col_right = st.columns([1, 2, 1])
+# ФОТО — увеличено и сдвинуто вправо
+col_left, col_center, col_right = st.columns([0.5, 2.5, 1])
 with col_center:
-    st.image(photo_path, caption="Юлия и Наталья — основатели Нейромастерской", width=400)
+    st.image(photo_path, caption="Юлия и Наталья — основатели Нейромастерской", width=550)
 
 # 3. КАРТОЧКИ ЭКСПЕРТОВ
 col1, col2 = st.columns(2)
@@ -119,7 +158,7 @@ col1, col2 = st.columns(2)
 with col1:
     st.markdown("""
         <div class="card expert-card">
-            <h3>🛠 Юлия Михеева</h3>
+            <h3> Юлия Михеева</h3>
             <p><b>Куратор-практик по нейросетям и цифровым инструментам</b></p>
             <ul style="text-align: left; line-height: 1.8;">
                 <li><b>Техническая экспертиза:</b> Создает чат-ботов, ИИ-агентов, пишет код.</li>
@@ -135,7 +174,7 @@ with col1:
 with col2:
     st.markdown("""
         <div class="card expert-card card-purple">
-            <h3>🎨 Наталья Урванцева</h3>
+            <h3> Наталья Урванцева</h3>
             <p><b>Наставник по практическому применению ИИ</b></p>
             <ul style="text-align: left; line-height: 1.8;">
                 <li><b>Высшее юридическое образование</b> — системное мышление.</li>
@@ -148,7 +187,7 @@ with col2:
         </div>
     """, unsafe_allow_html=True)
 
-# 4. СРАВНЕНИЕ (ТЕПЕРЬ С ПОНЯТНЫМИ КНОПКАМИ)
+# 4. СРАВНЕНИЕ
 st.markdown("## ⚖️ Бесплатный практикум vs Платный клуб")
 
 col1, col2 = st.columns(2)
@@ -184,7 +223,7 @@ with col2:
         </div>
     """, unsafe_allow_html=True)
 
-# 5. УСЛОВИЯ
+# 5. УСЛОВИЯ — ДВЕ КНОПКИ
 st.markdown("## 💰 Условия участия в клубе")
 st.markdown("""
     <div class="card card-purple" style="text-align: center; border: 2px solid #7b1fa2;">
@@ -194,8 +233,10 @@ st.markdown("""
             <li><b>Работаем официально</b> (самозанятость, налоги)</li>
             <li>Отмена в любой момент</li>
         </ul>
-        <br><br>
-        <a href="https://t.me/a_yulija19790111" class="btn-main btn-purple" target="_blank">💫 Написать Юлии: "Хочу в клуб"</a>
+        <div class="buttons-row">
+            <a href="https://t.me/a_yulija19790111" class="btn-main btn-purple" target="_blank"> Написать Юлии</a>
+            <a href="https://t.me/Natalia_U" class="btn-main btn-purple" target="_blank">💫 Написать Наталье</a>
+        </div>
     </div>
 """, unsafe_allow_html=True)
 
